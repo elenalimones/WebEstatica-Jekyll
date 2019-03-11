@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Programación Orientada a Objetos y Ejemplos | Sitio de Elena Limones Jovacho</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Programación Orientada a Objetos y Ejemplos" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="¿Qu es POO? La Programación Orientada a Objetos es un estilo de programación que permite que los desarroladores puedan agrupar todas las tareas que son similares en clase, de forma que ayuda a mantener el código sin repeticiones y a su vez, este es mucho más eficiente y fácil de mantener." />
+<meta property="og:description" content="¿Qu es POO? La Programación Orientada a Objetos es un estilo de programación que permite que los desarroladores puedan agrupar todas las tareas que son similares en clase, de forma que ayuda a mantener el código sin repeticiones y a su vez, este es mucho más eficiente y fácil de mantener." />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2019/03/11/POO.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2019/03/11/POO.html" />
+<meta property="og:site_name" content="Sitio de Elena Limones Jovacho" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-11T18:07:01+01:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Programación Orientada a Objetos y Ejemplos","url":"http://localhost:4000/jekyll/update/2019/03/11/POO.html","dateModified":"2019-03-11T18:07:01+01:00","datePublished":"2019-03-11T18:07:01+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2019/03/11/POO.html"},"description":"¿Qu es POO? La Programación Orientada a Objetos es un estilo de programación que permite que los desarroladores puedan agrupar todas las tareas que son similares en clase, de forma que ayuda a mantener el código sin repeticiones y a su vez, este es mucho más eficiente y fácil de mantener.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Sitio de Elena Limones Jovacho" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Sitio de Elena Limones Jovacho</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Programación Orientada a Objetos y Ejemplos</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-03-11T18:07:01+01:00" itemprop="datePublished">Mar 11, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>¿Qu es POO?
+	La Programación Orientada a Objetos es un estilo de programación que permite que los
+desarroladores puedan agrupar todas las tareas que son similares en clase, de forma que ayuda
+a mantener el código sin repeticiones y a su vez, este es mucho más eficiente y fácil de mantener.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>En caso de que alguna parte del programa que estamos desarrollando cambie, solo habria que realizar un cambio para actualizar el código y no muchos cambios.
+</code></pre></div></div>
+
+<p>¿Qué hay que conocer para comprender la POO? Es muy importante conocer la diferencia entre objetos y clases:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Clase: Es lo que forma la estructura de los datos y las acciones se encargan
+de usar esa información para así construir objetos. De una clase puede construirse
+más de un objeto, cada uno independiente de los demás. 
+La sintaxis para crear una clase se puede ver en los tres scripts que he utilizado:
+	SCRIPT 1:
+		class Query {
+			Aquí van las propiedades y los métodos			
+		};
+	SCRIPT 2:
+		class Rssreader {
+			Aquí van las propiedades y los métodos			
+		};
+
+		class RssItem {
+			Aquí van las propiedades y los métodos			
+		};
+	SCRIPT 3:
+		class pelicula {
+			Aquí van las propiedades y los métodos			
+		};
+	
+	Después de crear la clase esta puede ser instanciada y almacenada en una variable
+	pero en este caso se tendrá que hacer uso de la palabra new:
+		SCRIPT 1:
+			$query = new Query($host,$user,$pass,$db)
+		SCRIPT 2:
+			$items[] = new RssItem ($match);
+	Para ver el contenido de las clases anteriores podríamos usar:
+		var_dump($items);
+		var_dump($query);
+- Propiedades de una clase: Estas son las variables específicas de la clase. Para agregar
+una propiedad a una clase habría que añadir lo siguiente a lo anterior:
+			SCRIPT 1:
+		class Query {
+				private $result;
+				private $connect;			
+		};
+	SCRIPT 2:
+
+		class Rssreader {
+				var $url;
+				var $data;
+		};
+
+		class RssItem {
+				var $title, $link; #, $description;
+		};
+	SCRIPT 3:
+
+		class pelicula {
+				public $titulo;
+				public $genero;
+				public $director;
+				public $publicocine;
+		};
+	Con la palabra public se le está permitiendo que la propiedad sea visible y que se pueda
+	acceder a ella. Para ello habría que hacer referencia al objeto que
+	se quiere leer y la propiedad a ser leída:
+		echo $titulo-&gt;titulo;
+		echo $genero-&gt;genero;
+	(la flecha -&gt; se utiliza para acceder a las propiedades y métodos que contiene un
+	objeto)
+
+- Métodos: Son funciones específicas de una clase, es decir, son acciones individuales que
+un objeto puede realizar y se definen dentro de la clase, a continuación se pueden ver
+ejemplos, en los tres script que he utilizado:
+	SCRIPT 1:
+		function execute($query){};
+		function display(){};
+		function close(){};
+	SCRIPT 2:
+		function RssReader ($url){};
+		function get_items(){};
+		function RssItem($xml){};
+		function populate($xml){};
+	SCRIPT 3:
+		public function gettitulo(){}; 
+		public function getgenero(){}; 
+		public function getdirector(){};
+		public function publicocine(){}; 
+		public function getpublicocine(){}; 
+Los objetos se pueden referenciar a sí mismos haciendo uso de $this.
+
+- Constructores: El constructor es un método especial que se declara dentro de una clase
+y se utiliza para darle un valor a las propiedades del objeto al crearlo. Es el primer
+método que se ejecuta al crear el objeto y es llamado automáticamente.
+Puede recibir parámetros , pero no devolverá NUNCA ningún dato. 
+El método tiene que tener obligatoriamente cómo nombre __construct()
+A continuación, se pueden ver las funciones de constructor que se utilizan en los tres
+script que he aportado en la práctica como ejemplos:
+	SCRIPT 1:
+	Esta se usaba para poder realizar la conexión con la base de datos:
+		function __construc($servername,$username,$password,$dbname) {
+			$this-&gt;connect = new mysqli($servername,$username,$password,$dbname);
+		};
+	SCRIPT 2:
+		function __construct($params){
+			$this-&gt;url = $params['url'];
+			$this-&gt;data = implode ("", file($url));
+		};
+	SCRIPT 3:
+		public function __construct(){
+			this-&gt;titulo = $titulo; 
+			this-&gt;genero = $genero; 
+			this-&gt;director = $director; 
+		};			
+Es importante destacar que con POO lo que se permite es la reutilización de código y clase
+para generar objetos distintos . 
+</code></pre></div></div>
+
+<h1 id="primer-ejemplo-de-programación-orientada-a-objetos">Primer ejemplo de Programación Orientada a Objetos:</h1>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+class Query <span class="o">{</span>
+  private <span class="nv">$results</span><span class="p">;</span>
+  private <span class="nv">$connect</span><span class="p">;</span>
+	/<span class="k">*</span> Para poder realizar la conexión con la base de datos había que añadirle la función
+	constructor <span class="k">*</span>/
+  <span class="k">function </span>__construct<span class="o">(</span><span class="nv">$servername</span>, <span class="nv">$username</span>, <span class="nv">$password</span>, <span class="nv">$dbname</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nv">$this</span>-&gt;connect <span class="o">=</span> new mysqli<span class="o">(</span><span class="nv">$servername</span>, <span class="nv">$username</span>, <span class="nv">$password</span>, <span class="nv">$dbname</span><span class="o">)</span><span class="p">;</span>
+  <span class="o">}</span>
+	/<span class="k">*</span> A continuación se comprobaba si la conexión con la base de datos había sido exitosa
+	o si por el contrario daba algún tipo de error. Este método se utiliza sobretodo para
+	comprobar si existen o no errores <span class="k">*</span>/
+  <span class="k">function </span>execute<span class="o">(</span><span class="nv">$query</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nv">$this</span>-&gt;results <span class="o">=</span> <span class="nv">$this</span>-&gt;connect-&gt;query<span class="o">(</span><span class="nv">$query</span><span class="o">)</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nv">$this</span>-&gt;results <span class="o">!==</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="o">}</span>
+	/<span class="k">*</span> El siguiente método se utiliza para llevar a cabo una consulta a la base de datos <span class="k">*</span>/
+  <span class="k">function </span>display<span class="o">(){</span>
+    <span class="k">if</span><span class="o">(</span><span class="nv">$this</span>-&gt;results-&gt;num_rows <span class="o">==</span> 0<span class="o">){</span>
+      <span class="nb">echo</span> <span class="s2">"&lt;b&gt;No hay datos&lt;/b&gt;"</span><span class="p">;</span>
+    <span class="o">}</span>
+    <span class="k">while</span> <span class="o">(</span><span class="nv">$fila</span> <span class="o">=</span> <span class="nv">$this</span>-&gt;results-&gt;fetch_row<span class="o">())</span> <span class="o">{</span>
+      print_r<span class="o">(</span><span class="nv">$fila</span><span class="o">)</span><span class="p">;</span>
+    <span class="o">}</span>
+    <span class="nv">$this</span>-&gt;results-&gt;close<span class="o">()</span><span class="p">;</span>
+  <span class="o">}</span>
+	/<span class="k">*</span> Este último cierra la conexión realizada con la base de datos <span class="k">*</span>/
+  <span class="k">function </span>close<span class="o">(){</span>
+    <span class="nv">$this</span>-&gt;connect-&gt;close<span class="o">()</span><span class="p">;</span>
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="p">;</span>
+
+<span class="nv">$host</span> <span class="o">=</span> <span class="s2">"localhost"</span><span class="p">;</span>
+<span class="nv">$user</span> <span class="o">=</span> <span class="s2">"root"</span><span class="p">;</span>
+<span class="nv">$pass</span> <span class="o">=</span> <span class="s2">"root"</span><span class="p">;</span>
+<span class="nv">$db</span> <span class="o">=</span> <span class="s2">"aulas"</span><span class="p">;</span>
+
+<span class="nv">$query</span> <span class="o">=</span> new Query<span class="o">(</span><span class="nv">$host</span>,<span class="nv">$user</span>,<span class="nv">$pass</span>,<span class="nv">$db</span><span class="o">)</span><span class="p">;</span>
+
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"select * from grupo"</span><span class="p">;</span>
+
+<span class="k">if</span><span class="o">(</span><span class="nv">$query</span>-&gt;execute<span class="o">(</span><span class="nv">$sql</span><span class="o">))</span> <span class="o">{</span>
+  <span class="nv">$query</span>-&gt;display<span class="o">()</span><span class="p">;</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"&lt;b&gt;Algo no ha ido bien! &lt;/b&gt;"</span><span class="p">;</span> <span class="o">}</span>
+
+<span class="nv">$query</span>-&gt;close<span class="o">()</span><span class="p">;</span>
+
+
+  // Ver también http://bit.ly/2qSuxUn
+
+?&gt;
+</code></pre></div></div>
+
+<h2 id="uso-del-primer-ejemplo">Uso del primer ejemplo:</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+
+session_start<span class="o">()</span><span class="p">;</span>
+
+/<span class="k">*</span> En este caso incluyo la clase1 para hacer uso de la funciones que posee de conectar con la
+base de datos, hacer consultas en esta, etcétera. <span class="k">*</span>/
+include <span class="s1">'clase1.php'</span><span class="p">;</span>
+/<span class="k">*</span> Con los parametros siguientes se les indica la ip, el usuario de la base de datos con la que se
+va conectar junto con su contraseña, y por último, el nombre de la base de datos a la que se accederá<span class="k">*</span>/
+<span class="nv">$host</span> <span class="o">=</span> <span class="s2">"localhost"</span><span class="p">;</span>
+<span class="nv">$user</span> <span class="o">=</span> <span class="s2">"elenalimones"</span><span class="p">;</span>
+<span class="nv">$pass</span> <span class="o">=</span> <span class="s2">"elenalimones"</span><span class="p">;</span>
+<span class="nv">$db</span> <span class="o">=</span> <span class="s2">"frases_celebres"</span><span class="p">;</span>
+<span class="nv">$ar</span> <span class="o">=</span> array<span class="o">()</span><span class="p">;</span>
+
+// Se obtiene el <span class="nb">id </span>del autor con el método GET:
+<span class="nv">$id_autor</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="o">[</span><span class="s1">'id_autor'</span><span class="o">]</span><span class="p">;</span>
+
+<span class="nv">$query</span> <span class="o">=</span> new Query<span class="o">(</span><span class="nv">$host</span>,<span class="nv">$user</span>,<span class="nv">$pass</span>,<span class="nv">$db</span><span class="o">)</span><span class="p">;</span>
+
+// Consulta que se va llevar a cabo:
+<span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"select * from frases where id_autor = '</span><span class="nv">$id_autor</span><span class="s2">' "</span><span class="p">;</span>
+
+// execute hace referencia a un método de la clase y query al objeto
+<span class="k">if</span><span class="o">(</span><span class="nv">$query</span>-&gt;execute<span class="o">(</span><span class="nv">$sql</span><span class="o">))</span> <span class="o">{</span>
+  <span class="nv">$ar</span><span class="o">=</span><span class="nv">$query</span>-&gt;getArray<span class="o">()</span><span class="p">;</span>
+	var_dump<span class="o">(</span><span class="nv">$ar</span><span class="o">)</span><span class="p">;</span>
+	//print_r<span class="o">(</span><span class="nv">$ar</span><span class="o">)</span><span class="p">;</span> <span class="o">(</span>probando con print_r porque es un array<span class="o">)</span>
+  <span class="nv">$_SESSION</span><span class="o">[</span><span class="s2">"frases"</span><span class="o">]=</span><span class="nv">$ar</span><span class="p">;</span>
+
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">"&lt;b&gt;Algo no ha ido bien! &lt;/b&gt;"</span><span class="p">;</span> <span class="o">}</span>
+
+// Por último, se cierra la conexión con la base de datos
+<span class="nv">$query</span>-&gt;close<span class="o">()</span><span class="p">;</span>
+
+
+  // Ver también http://bit.ly/2qSuxUn
+?&gt;
+</code></pre></div></div>
+
+<h1 id="segundo-ejemplo-de-programación-orientada-a-objetos">Segundo ejemplo de Programación Orientada a Objetos:</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+defined<span class="o">(</span><span class="s1">'BASEPATH'</span><span class="o">)</span> OR <span class="nb">exit</span><span class="o">(</span><span class="s1">'No direct script access allowed'</span><span class="o">)</span><span class="p">;</span>
+
+
+/<span class="k">*</span> Se puede observar que crea una clase llamada Rssreader y que en su interior se declaran
+dos variables <span class="o">(</span>url y data<span class="o">)</span> <span class="k">*</span>/
+class Rssreader <span class="o">{</span>
+        var <span class="nv">$url</span><span class="p">;</span>
+        var <span class="nv">$data</span><span class="p">;</span>
+	/<span class="k">*</span> Aquí se crea el constructor que es un método especial dentro de la clase ya que
+	se utiliza para darle un valor a los atributos del objeto al crearlo. Este recibe
+	parámetros como cualquier otro método. Hay que tener claro que el constructor no
+	devuelve ningún dato<span class="k">*</span>/
+        public <span class="k">function </span>__construct<span class="o">(</span><span class="nv">$params</span><span class="o">)</span>
+        <span class="o">{</span>
+                <span class="c">#RssReader($params['url']);</span>
+            <span class="nv">$this</span>-&gt;url <span class="o">=</span> <span class="nv">$params</span><span class="o">[</span><span class="s1">'url'</span><span class="o">]</span><span class="p">;</span>
+            <span class="nv">$this</span>-&gt;data <span class="o">=</span> implode <span class="o">(</span><span class="s2">""</span>, file <span class="o">(</span><span class="nv">$this</span>-&gt;url<span class="o">))</span><span class="p">;</span>
+        <span class="o">}</span>
+	// A continuación se declara un nuevo método:
+        <span class="k">function </span>RssReader <span class="o">(</span><span class="nv">$url</span><span class="o">){</span>
+            <span class="nv">$this</span>-&gt;url<span class="p">;</span>
+            <span class="nv">$this</span>-&gt;data <span class="o">=</span> implode <span class="o">(</span><span class="s2">""</span>, file <span class="o">(</span><span class="nv">$url</span><span class="o">))</span><span class="p">;</span>
+        <span class="o">}</span>
+	// Este método siguiente devuelve otra clase llamada RssItem
+        <span class="k">function </span>get_items <span class="o">(){</span>
+            preg_match_all <span class="o">(</span><span class="s2">"/&lt;item .*&gt;.*&lt;</span><span class="se">\/</span><span class="s2">item&gt;/xsmUi"</span>, <span class="nv">$this</span>-&gt;data, <span class="nv">$matches</span><span class="o">)</span><span class="p">;</span>
+            <span class="nv">$items</span> <span class="o">=</span> array <span class="o">()</span><span class="p">;</span>
+            foreach <span class="o">(</span><span class="nv">$matches</span><span class="o">[</span>0] as <span class="nv">$match</span><span class="o">){</span>
+                <span class="nv">$items</span><span class="o">[]</span> <span class="o">=</span> new RssItem <span class="o">(</span><span class="nv">$match</span><span class="o">)</span><span class="p">;</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="nv">$items</span><span class="p">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+	/<span class="k">*</span> A continuación se crea la clase RssItem que ha sido llamada en la función anterior,
+	ya que hay que crearla para que funcione correctamente al llamarla <span class="k">*</span>/
+    class RssItem <span class="o">{</span>
+        var <span class="nv">$title</span>, <span class="nv">$link</span><span class="p">;</span> <span class="c">#, $description;</span>
+        <span class="k">function </span>RssItem <span class="o">(</span><span class="nv">$xml</span><span class="o">){</span>
+            <span class="nv">$this</span>-&gt;populate <span class="o">(</span><span class="nv">$xml</span><span class="o">)</span><span class="p">;</span>
+        <span class="o">}</span>
+	// Se le añaden métodos nuevos a la clase RssItem para la obtención del <span class="nb">link</span>, título, etc
+        <span class="k">function </span>populate <span class="o">(</span><span class="nv">$xml</span><span class="o">){</span>
+            preg_match <span class="o">(</span><span class="s2">"/&lt;title&gt; (.*) &lt;</span><span class="se">\/</span><span class="s2">title&gt;/xsmUi"</span>, <span class="nv">$xml</span>, <span class="nv">$matches</span><span class="o">)</span><span class="p">;</span>
+            <span class="nv">$this</span>-&gt;title <span class="o">=</span> <span class="nv">$matches</span><span class="o">[</span>1]<span class="p">;</span>
+            preg_match <span class="o">(</span><span class="s2">"/&lt;link&gt; (.*) &lt;</span><span class="se">\/</span><span class="s2">link&gt;/xsmUi"</span>, <span class="nv">$xml</span>, <span class="nv">$matches</span><span class="o">)</span><span class="p">;</span>
+            <span class="nv">$this</span>-&gt;link <span class="o">=</span> <span class="nv">$matches</span><span class="o">[</span>1]<span class="p">;</span>
+            <span class="c">#preg_match ("/&lt;description&gt; (.*) &lt;\/description&gt;/xsmUi", $xml, $matches);</span>
+            <span class="c">#$this-&gt;description = $matches[1];</span>
+        <span class="o">}</span>
+        <span class="k">function </span>get_title <span class="o">(){</span>
+          <span class="k">return</span> <span class="nv">$this</span>-&gt;title<span class="p">;</span>
+        <span class="o">}</span>
+        <span class="k">function </span>get_link <span class="o">(){</span>
+          <span class="k">return</span> <span class="nv">$this</span>-&gt;link<span class="p">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+?&gt;
+</code></pre></div></div>
+
+<h2 id="uso-del-segundo-ejemplo">Uso del segundo ejemplo:</h2>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+define<span class="o">(</span><span class="s1">'BASEPATH'</span>, <span class="s2">"."</span><span class="o">)</span><span class="p">;</span>
+
+   require<span class="o">(</span><span class="s1">'claseRssreader.php'</span><span class="o">)</span><span class="p">;</span>
+   // Con el include se hace uso de la clase clase Rssreader.php
+   include<span class="o">(</span><span class="s1">'claseRssreader.php'</span><span class="o">)</span><span class="p">;</span>
+
+   // Se introducen los parámetros que se van a usar en el constructor
+   <span class="nv">$params</span> <span class="o">=</span> array<span class="o">(</span><span class="s1">'url'</span> <span class="o">=&gt;</span> <span class="s1">'http://ep00.epimg.net/rss/elpais/portada.xml'</span><span class="o">)</span><span class="p">;</span>
+
+   // rss pasa a ser el objeto de la clase Rssreader
+   <span class="nv">$rss</span> <span class="o">=</span> new Rssreader<span class="o">(</span><span class="nv">$params</span><span class="o">)</span><span class="p">;</span>
+   // Recorre <span class="nv">$rss</span> y con el método get_items se encarga de asignar el resultado de la clase a rssreader
+   foreach <span class="o">(</span><span class="nv">$rss</span>-&gt;get_items<span class="o">()</span> as <span class="nv">$item</span><span class="o">){</span>
+     <span class="nb">echo </span>substr<span class="o">(</span><span class="nv">$item</span>-&gt;get_title<span class="o">()</span>,9,-3<span class="o">)</span> <span class="nb">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+     <span class="nb">echo</span> <span class="s2">"&lt;hr /&gt;"</span><span class="p">;</span>
+   <span class="o">}</span>
+
+?&gt;
+</code></pre></div></div>
+
+<h1 id="tercer-ejemplo-de-programación-orientada-a-objetos-y-su-uso">Tercer ejemplo de Programación Orientada a Objetos y su uso:</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+// Definición de una clase:
+	class pelicula <span class="o">{</span>
+	// Añado varios atributos a la clase película
+		public <span class="nv">$titulo</span><span class="p">;</span>
+		public <span class="nv">$genero</span><span class="p">;</span>
+		public <span class="nv">$director</span><span class="p">;</span>
+		public <span class="nv">$publicocine</span><span class="p">;</span>
+
+	// Añado el constructor
+		public <span class="k">function </span>__constructor<span class="o">(</span><span class="nv">$titulo</span>,<span class="nv">$genero</span>,<span class="nv">$director</span>,<span class="nv">$publico</span> <span class="o">=</span> 0<span class="o">){}</span>
+			this-&gt;titulo <span class="o">=</span> <span class="nv">$titulo</span><span class="p">;</span>
+			this-&gt;genero <span class="o">=</span> <span class="nv">$genero</span><span class="p">;</span>
+			this-&gt;director <span class="o">=</span> <span class="nv">$director</span><span class="p">;</span>
+
+	// Se le añade un método para que devuelva el atributo título
+		public <span class="k">function </span>gettitulo<span class="o">(){</span>
+			<span class="k">return</span> <span class="nv">$this</span>-&gt;titulo<span class="p">;</span>
+		<span class="o">}</span>
+
+	// Se le añade un método para darle un valor al atributo género
+		public <span class="k">function </span>getgenero<span class="o">(){</span>
+			<span class="k">return</span> <span class="nv">$this</span>-&gt; <span class="nv">$genero</span><span class="p">;</span>
+		<span class="o">}</span>
+
+	// Se le añade un método para que devuelva el atributo director
+		public <span class="k">function </span>getdirector<span class="o">(){</span>
+			<span class="k">return</span> <span class="nv">$this</span>-&gt;director<span class="p">;</span>
+		<span class="o">}</span>
+
+	// Se le añade otro método:
+		public <span class="k">function </span>publicocine<span class="o">(){</span>
+			<span class="k">return</span> <span class="nv">$this</span>-&gt;publicocine++<span class="p">;</span>
+		<span class="o">}</span>
+	// Método para obtener el atributo publico
+		public <span class="k">function </span>getpublicocine<span class="o">(){</span>
+			<span class="k">return</span> <span class="nv">$this</span>-&gt;publicocine<span class="p">;</span>
+		<span class="o">}</span>
+
+		public funcion mostrarinfo<span class="o">(){</span>
+	//Llamo a los métodos:
+		<span class="nv">$info</span> <span class="o">=</span> <span class="s2">"&lt;h1&gt;Información de la película&lt;/h1&gt;"</span><span class="p">;</span>
+		<span class="nv">$info</span> <span class="o">=</span> <span class="s2">"Título: "</span>.<span class="nv">$this</span>-&gt;titulo<span class="p">;</span>
+		<span class="nv">$info</span> <span class="o">=</span> <span class="s2">"Género: "</span>.<span class="nv">$this</span>-&gt;genero<span class="p">;</span>
+		<span class="nv">$info</span> <span class="o">=</span> <span class="s2">"Director: "</span>.<span class="nv">$this</span>-&gt;getdirector<span class="o">()</span><span class="p">;</span>
+		<span class="nv">$info</span> <span class="o">=</span> <span class="s2">"Público del cine: "</span>.<span class="nv">$this</span>-&gt;getpublicocine<span class="o">()</span><span class="p">;</span>
+
+		<span class="k">return</span> <span class="nv">$info</span><span class="p">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+?&gt;
+</code></pre></div></div>
+<h2 id="uso-del-tercer-ejemplo">Uso del tercer ejemplo:</h2>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;<span class="o">!</span>DOCTYPE HTML&gt;
+&lt;html <span class="nv">lang</span><span class="o">=</span><span class="s2">"es"</span><span class="o">&gt;</span>
+&lt;<span class="nb">head</span><span class="o">&gt;</span>
+	&lt;meta <span class="nv">charset</span><span class="o">=</span><span class="s2">"utf-8"</span>/&gt;
+	&lt;title&gt;Constructor&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;?php
+/<span class="k">*</span> Se crea el objeto y se instancia la clase pasándole los parámetros del constructor, que eran
+el título, genero, director y público del cine <span class="k">*</span>/
+	<span class="nv">$pelicula</span> <span class="o">=</span> new pelicula<span class="o">(</span><span class="s2">"Vengadores"</span>,<span class="s2">"Acción"</span>,<span class="s2">"Rusos Brother's"</span>, 120<span class="o">)</span><span class="p">;</span>
+
+// Se muestra información de la primera pelicula:
+
+	<span class="nb">echo</span> <span class="nv">$pelicula</span>-&gt;mostrarinfo<span class="o">()</span><span class="p">;</span>
+
+	// Se crea una nueva película y se muestra
+	<span class="nv">$pelicula2</span> <span class="o">=</span> new pelicula<span class="o">(</span><span class="s2">"Star Wars"</span>,<span class="s2">"Ficción"</span>,<span class="s2">"George Lucas"</span>,150<span class="o">)</span><span class="p">;</span>
+	<span class="nb">echo</span> <span class="nv">$pelicula2</span> -&gt;mostrarInfo<span class="o">()</span><span class="p">;</span>
+
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/jekyll/update/2019/03/11/POO.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Sitio de Elena Limones Jovacho</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Sitio de Elena Limones Jovacho</li><li><a class="u-email" href="mailto:elenalimones88@gmail.com">elenalimones88@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/elenalimones"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">elenalimones</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

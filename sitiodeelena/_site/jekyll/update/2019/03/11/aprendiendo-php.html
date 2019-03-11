@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Nociones básicas para aprender PHP | Sitio de Elena Limones Jovacho</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Nociones básicas para aprender PHP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introducción: A lo largo de este post puede ver las herramientas necesarias para la utilización de php y algunas nociones básicas en cuanto a sintaxis para su correcto uso." />
+<meta property="og:description" content="Introducción: A lo largo de este post puede ver las herramientas necesarias para la utilización de php y algunas nociones básicas en cuanto a sintaxis para su correcto uso." />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2019/03/11/aprendiendo-php.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2019/03/11/aprendiendo-php.html" />
+<meta property="og:site_name" content="Sitio de Elena Limones Jovacho" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-11T18:07:01+01:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Nociones básicas para aprender PHP","url":"http://localhost:4000/jekyll/update/2019/03/11/aprendiendo-php.html","dateModified":"2019-03-11T18:07:01+01:00","datePublished":"2019-03-11T18:07:01+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2019/03/11/aprendiendo-php.html"},"description":"Introducción: A lo largo de este post puede ver las herramientas necesarias para la utilización de php y algunas nociones básicas en cuanto a sintaxis para su correcto uso.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Sitio de Elena Limones Jovacho" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Sitio de Elena Limones Jovacho</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Nociones básicas para aprender PHP</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-03-11T18:07:01+01:00" itemprop="datePublished">Mar 11, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="introducción">Introducción:</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A lo largo de este post puede ver las herramientas necesarias para la utilización de php y algunas nociones básicas en cuanto a sintaxis para su correcto uso.
+</code></pre></div></div>
+
+<h3 id="herramientas-necesarias-para-su-uso">Herramientas necesarias para su uso:</h3>
+
+<ul>
+  <li>Linux
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>apache2 php7.2 php7.2-cli php7.2-common php7.2-mysql libapache2-mod-php7.2
+</code></pre></div>    </div>
+  </li>
+  <li>Windows
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.apachefriends.org/es/index.html 
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="nociones-básicas-de-php">Nociones básicas de PHP</h3>
+<h3 id="comentarios-en-php">Comentarios en php:</h3>
+
+<p>//comentario o con #
+/* comentario bloque */</p>
+
+<h3 id="uso-de-variables">Uso de variables</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$variable = "hola"
+$numero = 11;
+echo $variable . "\n";
+echo $numero;
+</code></pre></div></div>
+
+<h3 id="uso-de-constantes">Uso de constantes</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Constante simple:
+&lt;?php
+    define<span class="o">(</span><span class="s2">"nombreconstante"</span>,<span class="s2">"valor"</span><span class="o">)</span><span class="p">;</span>
+    define<span class="o">(</span><span class="s2">"MI_CONSTANTE"</span>,<span class="s2">"HOLA"</span><span class="o">)</span><span class="p">;</span>
+
+Constante array:
+    define<span class="o">(</span><span class="s2">"MI_ARRAY"</span>, array<span class="o">(</span><span class="s2">"2"</span>,<span class="s2">"3"</span><span class="o">)</span><span class="p">;</span>
+    <span class="nv">$_miconstante</span> <span class="o">=</span> MI_CONSTANTE<span class="p">;</span>
+    <span class="nb">echo </span>MI_CONSTANTE <span class="nb">.</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</code></pre></div></div>
+<ul>
+  <li>Las constantes son valores fijos</li>
+</ul>
+
+<h3 id="para-mostrar">Para mostrar:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print_r ("valor"); (muestra también arrays)
+echo "valor"; (muestra datos simples)
+</code></pre></div></div>
+
+<h3 id="operadores">Operadores</h3>
+<ul>
+  <li>Operadores lógicos
+– $a and $b (verdadero si $a y $b son verdaderos)
+– $a or $b (verdadero si alguno de los dos es verdadero)
+– $a or $b (verdadero si uno de los dos es verdadero, pero no ambos a la vez)
+– !$a (verdadero si $a es falso)
+– $a &amp;&amp; $b (verdadero si $a y $b son verdaderos)
+– $a || $b (verdadero si cualquiera de los dos es verdadero)</li>
+  <li>
+    <p>Operadores de asignación:
+– $a = “Uno”; (no se entiende por igual, sino que significa que el operando de la izquierda se asigna el valor del de la derecha)
+– $b = $a (en este caso $b, por ejemplo, valdría Uno)</p>
+  </li>
+  <li>
+    <p>Operadores de comparación
+– $a == $b (verdadero si $a es igual a $b)
+– $a === $b (idénticos, además de igual, son del mismo tipo)
+– $a != $b (verdadero si $a es distinto de $b)
+– $a &lt;&gt; $b (verdadero si $a es diferente de $b)
+– $a !== $b (si $a no es igual que $b y además no son del mismo tipo)
+– $a &gt; $b ($a es mayor que $b)
+– $a &lt; $b ($a es menor que $b)
+– $a &lt;= $b (verdadero si $a es menor o igual que $b)
+– $a &gt;= $b (verdadero si $a es mayor o igual que $b)</p>
+  </li>
+  <li>Operadores de incremento/decremento
+– ++ $a(Pre-incremento, incrementa $a en uno, y luego retorna $a, lo muestra la próxima vez que aparezca $a y no esa vez que lo hace)
+– $a++ (Post-incremento, retorna $a, y luego incrementa $a en uno)
+– –$a (Pre-decremento, decrementa $a en uno, luego retorna $a, lo muestra en decremento la próxima vez que aparezca $a, no cuando lo hace)
+–$a– (Post-decremento, retorna $a, luego decrementa $a en uno)
+```sh
+$a = 5
+echo “\nincremento\n”;
+  echo $a . “\n”;
+  echo $a++ . “\n”;
+  echo $a . “\n”;</li>
+</ul>
+
+<p>echo “\nPreincremento\n”;
+$a = 5
+    echo ++$a . “\n”;
+    echo $a . “\n”;</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Operadores de string
+-- . (con el punto se concatenan cadenas)
+-- .= (es el operdor de asignación sobre concatenación)
+
+```sh
+<span class="cp">&lt;?php</span>
+    <span class="nv">$a</span> <span class="o">=</span> <span class="s2">"juan"</span><span class="p">;</span>
+    <span class="nv">$b</span> <span class="o">=</span> <span class="nv">$a</span> <span class="o">=</span> <span class="s2">"lopez"</span><span class="p">;</span>
+    
+    <span class="nv">$c</span> <span class="o">=</span> <span class="s2">"Pedro"</span><span class="p">;</span>
+    <span class="nv">$c</span> <span class="o">.=</span> <span class="s2">"García"</span><span class="p">;</span>
+    
+    <span class="k">echo</span> <span class="nv">$b</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$c</span> <span class="o">.</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+    
+<span class="nx">Solución</span><span class="o">:</span>
+<span class="nx">juanlopez</span>
+<span class="nx">PedroGarcía</span>
+</code></pre></div></div>
+
+<h3 id="inclusión-de-páginas-php">Inclusión de páginas PHP:</h3>
+<p>Esto se hace para que sean más fácilmente modificables y legibles. Hay varias formas de incluirlo:</p>
+
+<ul>
+  <li>include
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  include <span class="s2">"script2.php"</span><span class="p">;</span>
+  include_once <span class="s2">"script2.php"</span><span class="p">;</span> <span class="o">(</span>una sola vez<span class="o">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>require
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  require <span class="s2">"script2.php"</span><span class="p">;</span>
+  require_once <span class="s2">"script2.php"</span><span class="p">;</span> <span class="o">(</span>la incluye una sola vez y se encarga de que no esté incluída en otra parte del programa<span class="o">)</span>
+</code></pre></div>    </div>
+    <blockquote>
+      <p>Include y require son iguales solo se diferencian en el tipo de error que generan. 
+Require indica que el código que se inluye es obligatorio para la ejecución del script y si no se encuentra el archivo dará un error y se parara el script o programa php.
+Include indica que el código que se incluye es opcional y si el fichero no se encuentra dará un warning, una advertencia que no existe el fichero que queremos incluir pero el programa seguirá ejecutándose aunque no funcione bien.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="sessiones-y-cookies">Sessiones y cookies</h3>
+
+<ul>
+  <li>Sessiones: Son un conjunto de datos de un usuario que se guardan mientras él permanece en nuestro sitio. Funcionan de una forma similar a las cookies pero las cookies no son aceptadas por todos los usuarios y navegadores y se almacenan en el ordenador del cliente, mientras las sessiones son almacenadas en el servidor:</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   &lt;?php
+    session_start<span class="o">()</span><span class="p">;</span>
+    <span class="nv">$_SESSION</span><span class="o">[</span><span class="s1">'mi_sesion'</span><span class="o">]=</span><span class="s2">"valor"</span><span class="p">;</span>
+
+&lt;?php
+    session_start<span class="o">()</span><span class="p">;</span>
+    <span class="nv">$_SESSION</span><span class="o">[</span><span class="s1">'mi_sesion'</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div></div>
+<blockquote>
+  <p>¿Cuándo se usan las sesiones?
+ · Carrito de compras
+ · Control de un usuario registrado</p>
+</blockquote>
+
+<ul>
+  <li>Cookies
+```sh
+ <?php
+  setcookie("name","valor");
+?>
+<a href="otrapagina.php">COOKIES</a></li>
+</ul>
+
+<p>Otra página
+<?php
+    echo $_COOKIE['name'];
+?></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```sh
+$nombre = 'usuario';
+$valor = 'Homer';
+// El tiempo de expiración es en 30 minutos. PHP traduce la fecha al formato adecuado
+$expiracion = time() + 60 * 30;
+// Ruta y dominio
+$ruta = '/cookies/';
+$dominio = "prueba.dev";
+// Sólo envía la cookie con conexión HTTPs
+$seguridad = false;
+// Cookie disponible sólo para el protocolo HTTP
+$solohttp = true;
+setcookie($nombre, $valor, $expiracion, $ruta, $dominio, $seguridad, $solohttp);
+echo "Cookie establecida";
+</code></pre></div></div>
+
+<blockquote>
+  <p>Para leer las cookies existe un array llamado $_COOKIE, que se usa para extraer los valores de la cookie:</p>
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$valorCookie</span> <span class="o">=</span> <span class="nv">$_COOKIE</span><span class="o">[</span><span class="s1">'usuario'</span><span class="o">]</span><span class="p">;</span>
+<span class="nb">echo</span> <span class="nv">$valorCookie</span><span class="p">;</span> // Devuelve: usuario
+</code></pre></div>  </div>
+</blockquote>
+
+<h3 id="arrays">Arrays</h3>
+<p>Sirven para ordenar y guardar grupos de datos:</p>
+<ul>
+  <li>Arrays (puede contener cualquier tipo de valor en su interior, empiezan por 0)
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Creación del array:
+  <span class="nv">$array_1</span> <span class="o">=</span> array<span class="o">(</span><span class="s2">"1"</span>,<span class="s2">"2"</span>,<span class="s2">"3"</span>,<span class="s2">"4"</span>, array<span class="o">(</span><span class="s1">'juan'</span>,<span class="s1">'diego'</span><span class="o">))</span><span class="p">;</span>
+  <span class="nv">$array_2</span> <span class="o">=</span> array<span class="o">(</span><span class="s2">"uno"</span>,<span class="s2">"dos"</span>,<span class="s2">"tres"</span>,<span class="s2">"cuatro"</span><span class="o">)</span><span class="p">;</span>
+   
+  Ver los elementos del array por pantalla:
+  <span class="nv">$array_2</span><span class="o">[</span>1]<span class="p">;</span> <span class="o">(</span>nos da como resultado: dos<span class="o">)</span> 
+  print_r <span class="o">(</span>array_1<span class="o">)</span><span class="p">;</span> <span class="o">(</span>muestra el array completo con el otro array dentro<span class="o">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Arrays asociativos
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Definición:
+  <span class="nv">$arra_ass</span> <span class="o">=</span> array<span class="o">(</span>
+      <span class="s1">'1'</span> <span class="o">=&gt;</span> <span class="s1">'valor2'</span>,
+      <span class="s1">'2'</span> <span class="o">=&gt;</span> <span class="s1">'valor2'</span>,
+      <span class="s1">'3'</span> <span class="o">=&gt;</span> <span class="s1">'valor3'</span>,
+      <span class="s1">'4'</span> <span class="o">=&gt;</span> <span class="nv">$array_2</span>,
+  <span class="o">)</span><span class="p">;</span>
+    
+  Acceso a través de claves:
+  <span class="nb">echo</span> <span class="nv">$arra_ass</span><span class="o">[</span>2]<span class="p">;</span>
+  <span class="nb">echo</span> <span class="s2">"&lt;pre&gt;"</span><span class="p">;</span> <span class="o">(</span>para que se vea de forma legible, lo formatea<span class="o">)</span>
+  print_r <span class="o">(</span><span class="nv">$arra_ass</span><span class="o">)</span><span class="p">;</span> <span class="o">(</span>muestra el array completo<span class="o">)</span>
+  <span class="nb">echo</span> <span class="s2">"&lt;/pre&gt;"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Funciones de arrays (algunas importantes)
+– is_array ($arra_ass); (indica si lo que hay dentro es un array)
+– array_keys (Devuelve todas las claves del array, en este caso 1,2,3…)</li>
+</ul>
+
+<p>Hay una gran variedad de funciones de arrays.</p>
+
+<h2 id="estructuras-de-control">Estructuras de control</h2>
+<h3 id="ifelse">If…else</h3>
+<p>Es una estructura condicional, hace una cosa u otra:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+    <span class="nv">$a</span> <span class="o">=</span> <span class="s2">"5"</span><span class="p">;</span>
+    <span class="nv">$b</span> <span class="o">=</span> <span class="s2">"10"</span><span class="p">;</span>
+    <span class="k">if</span> <span class="o">(</span> <span class="nv">$a</span> <span class="o">==</span> <span class="nv">$b</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="nb">echo</span> <span class="s2">"Son iguales"</span><span class="p">;</span>
+    <span class="o">}</span>
+    elseif <span class="o">(</span> <span class="nv">$a</span> &lt; <span class="nv">$b</span> <span class="o">)</span>
+    <span class="o">{</span>
+        <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$a</span><span class="s2"> es menor que </span><span class="nv">$b</span><span class="s2">"</span><span class="p">;</span>   
+    <span class="o">}</span>
+    <span class="k">else</span>
+    <span class="o">{</span>
+        <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$a</span><span class="s2"> es mayor que </span><span class="nv">$b</span><span class="s2">"</span><span class="p">;</span>
+    <span class="o">}</span>
+?&gt;
+</code></pre></div></div>
+
+<h3 id="while--do--while">While / do … while</h3>
+
+<ul>
+  <li>while (evalúa una expresión mientras sea verdadera sino sale del bucle. No evalúa la expresión si no es verdadero de entrada)
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$a</span> <span class="o">=</span> 10<span class="p">;</span>
+  <span class="nv">$b</span> <span class="o">=</span> 5<span class="p">;</span>
+    
+  <span class="k">while</span> <span class="o">(</span> <span class="nv">$a</span> <span class="o">!=</span> <span class="nv">$b</span> <span class="o">)</span>
+  <span class="o">{</span>
+      <span class="nb">echo</span> <span class="nv">$b</span> <span class="nb">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+      <span class="nv">$b</span>++<span class="p">;</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Do … while (es al reves, primero entra en el bucle y luego te evalúa la expresión (do while en este caso evalúa si es igual y el while evaluaba si era distinto))
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">do</span> <span class="o">{</span>
+      <span class="nb">echo</span> <span class="nv">$b</span> <span class="nb">.</span> <span class="s2">"&lt;br"</span><span class="p">;</span>
+      <span class="nv">$b</span>++<span class="p">;</span>
+  <span class="o">}</span>
+  <span class="k">while</span> <span class="o">(</span> <span class="nv">$a</span> <span class="o">==</span> <span class="nv">$b</span> <span class="o">)</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="for">For</h3>
+<p>Evalúa una expresión1 mientras la expresión2 es verdadera y la expresión3 se encarga de hacer un incremento o decremento de la expresion1.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+    <span class="k">for</span> <span class="o">(</span> <span class="nv">$i</span> <span class="o">=</span> 0<span class="p">;</span> <span class="nv">$j</span> <span class="o">=</span> 0<span class="p">;</span> <span class="nv">$i</span> &lt; 10<span class="p">;</span> <span class="nv">$i</span>+<span class="o">=</span>3<span class="p">;</span> <span class="nv">$j</span>++ <span class="o">)</span>
+    <span class="o">{</span>
+        <span class="nb">echo</span> <span class="nv">$i</span> <span class="nb">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="foreach">Foreach</h3>
+<p>Se utiliza para recorrer arrays u objetos y tiene dos formas de uso:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    · Sintaxis:
+    foreach <span class="o">(</span>expresion_array as <span class="nv">$valor</span><span class="o">)</span>
+        sentencias
+    · Ejemplo:
+    <span class="nv">$arr</span> <span class="o">=</span> array<span class="o">(</span><span class="s2">"uno"</span>,<span class="s2">"dos"</span>,<span class="s2">"tres"</span><span class="o">)</span><span class="p">;</span>
+    foreach <span class="o">(</span><span class="nv">$arr</span> as <span class="nv">$value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nb">echo</span> <span class="nv">$value</span> <span class="nb">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+    <span class="o">}</span>
+    
+    Sintaxis:
+    foreach <span class="o">(</span>expresion_array as <span class="nv">$clave</span> <span class="o">=&gt;</span> <span class="nv">$valor</span><span class="o">)</span>
+        sentencias
+    · Ejemplo:
+     <span class="nv">$arr</span> <span class="o">=</span> array<span class="o">(</span>
+     <span class="s2">"1"</span> <span class="o">=&gt;</span> <span class="s2">"uno"</span>,
+     <span class="s2">"2"</span> <span class="o">=&gt;</span> <span class="s2">"dos"</span>,
+     <span class="s2">"3"</span> <span class="o">=&gt;</span> <span class="s2">"tres"</span><span class="o">)</span><span class="p">;</span>
+     foreach <span class="o">(</span> <span class="nv">$arr</span> as <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nb">echo</span> <span class="nv">$value</span> <span class="nb">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+        <span class="nb">echo</span> <span class="nv">$key</span> <span class="nb">.</span> <span class="s2">" = "</span> <span class="nb">.</span> <span class="nv">$value</span> <span class="nb">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Uso de Break y continue
+Break = Finaliza la ejecución de la estructura for, foreach, while, do-while o switch en curso. 
+Continue = Se utiliza en estructuras de control para pasar a la siguiente iteracción.</p>
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>· Ejemplo de uso de <span class="nb">break</span>:
+&lt;?php
+    <span class="k">for</span> <span class="o">(</span> <span class="nv">$i</span> <span class="o">=</span> 0<span class="p">;</span> <span class="nv">$i</span> &lt; 10<span class="p">;</span> <span class="nv">$i</span>+<span class="o">=</span>3<span class="o">)</span>
+    <span class="o">{</span>
+       <span class="k">if</span> <span class="o">(</span> <span class="nv">$i</span> <span class="o">==</span> 5 <span class="o">)</span>
+       <span class="o">{</span>
+            <span class="nb">break</span><span class="p">;</span>
+       <span class="o">}</span>
+       <span class="nb">echo</span> <span class="nv">$i</span> <span class="nb">.</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+    <span class="o">}</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>Dato interesante:
+$line = readline();
+En $line se almacena todo lo que escribes por la consola hasta finalizar con un intro.</p>
+</blockquote>
+
+<h2 id="formularios">FORMULARIOS</h2>
+<h3 id="get-muestra-los-datos-por-la-url">GET (muestra los datos por la url)</h3>
+<p>Esta forma no es muy segura porque se ven todos los datos desde la url. Está mas delimitado en cuanto a caracteres que puedes enviar, archivos no se pueden enviar, datos binarios tampoco:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>index.php:
+&lt;<span class="o">!</span>DOCTYPE html&gt;
+&lt;html&gt;
+&lt;<span class="nb">head</span><span class="o">&gt;</span>
+    &lt;tittle&gt;&lt;/tittle&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form <span class="nv">action</span><span class="o">=</span>form.php <span class="nv">method</span><span class="o">=</span>get&gt;
+        Escriba su nombre&lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">name</span><span class="o">=</span><span class="s2">"nombre"</span><span class="o">&gt;</span>
+        &lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="nv">name</span><span class="o">=</span><span class="s2">"enviar"</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"Enviar"</span><span class="o">&gt;</span>
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+form.php donde recibe los datos del formulario:
+&lt;?php
+<span class="nb">echo</span> <span class="nv">$_GET</span> <span class="o">[</span><span class="s1">'nombre'</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="post-">POST ()</h3>
+<p>Se pueden enviar archivos, datos binarios y muchas más cosas que con el método GET:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>index.php:
+&lt;<span class="o">!</span>DOCTYPE html&gt;
+&lt;html&gt;
+&lt;<span class="nb">head</span><span class="o">&gt;</span>
+    &lt;tittle&gt;&lt;/tittle&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form <span class="nv">action</span><span class="o">=</span>form.php <span class="nv">method</span><span class="o">=</span>post&gt;
+        Escriba su nombre&lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">name</span><span class="o">=</span><span class="s2">"nombre"</span><span class="o">&gt;</span>
+        &lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="nv">name</span><span class="o">=</span><span class="s2">"enviar"</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"Enviar"</span><span class="o">&gt;</span>
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+form.php donde recibe los datos del formulario:
+&lt;?php
+<span class="nb">echo</span> <span class="nv">$_POST</span><span class="o">[</span><span class="s1">'nombre'</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div></div>
+<p>[Este ejemplo de formulario tiene un zip llamado Ejemplo_formulario_en_PHP.zip]</p>
+
+<p>###Subida de ficheros al servidor
+ Se va realizar con el método POST porque el método GET no permite subida de ficheros, lo que aparece a continuación, nos crea una caja de texto con la que podemos añadir ficheros:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>index.php:
+&lt;<span class="o">!</span>DOCTYPE html&gt;
+&lt;html&gt;
+&lt;<span class="nb">head</span><span class="o">&gt;</span>
+    &lt;tittle&gt;&lt;/tittle&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form <span class="nv">action</span><span class="o">=</span>form.php <span class="nv">method</span><span class="o">=</span>post <span class="nv">enctype</span><span class="o">=</span><span class="s2">"multipart/form-data"</span><span class="o">&gt;</span>
+        Escriba su nombre&lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nv">name</span><span class="o">=</span><span class="s2">"nombre"</span><span class="o">&gt;</span>
+        Subir fichero&lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"file"</span> <span class="nv">name</span><span class="o">=</span><span class="s2">"fichero"</span><span class="o">&gt;</span>
+        &lt;input <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="nv">name</span><span class="o">=</span><span class="s2">"enviar"</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"Enviar"</span><span class="o">&gt;</span>
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+form.php donde recibe los datos del formulario:
+&lt;?php
+<span class="nb">echo</span> <span class="nv">$_POST</span><span class="o">[</span><span class="s1">'nombre'</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div></div>
+<p>[ con esto: method=post enctype=”multipart/form-data” le estamos diciendo al servidor que subiremos un fichero]</p>
+
+  </div><a class="u-url" href="/jekyll/update/2019/03/11/aprendiendo-php.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Sitio de Elena Limones Jovacho</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Sitio de Elena Limones Jovacho</li><li><a class="u-email" href="mailto:elenalimones88@gmail.com">elenalimones88@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/elenalimones"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">elenalimones</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

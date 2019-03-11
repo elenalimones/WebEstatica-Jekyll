@@ -1,0 +1,142 @@
+---
+layout: post
+title:  "Aprendiendo Docker"
+date:   2019-03-11 18:07:01 +0100
+categories: jekyll update
+---
+# DOCKER 
+
+# Gestión de imágenes:
+
+```sh
+$ docker images (Muestrario de imágenes instaladas en nuestro sistema físico)
+
+$ docker history (nos muestra el historial de cambios que tiene una imagen concreta. Ejecuciones que se han hecho en una imagen base hasta llegar donde está. Ejemplo: Una imagen base debian hasta tener instalado un apache, los pasos que se han dado)
+
+$ docker inspect id (Muestra una descripción detallada de características de la imagen)
+
+$ docker save/load (Salvar y cargar una imagen a partir de un targ)
+
+$ docker rmi (Borra una imagen de nuestro host físico)
+```
+
+# Gestión de contenedores:
+
+```sh
+$ docker attach (si tenemos un contenedor activo nos agregamos a él)
+
+$ docker exec (ejecutamos un comando en un contenedor concreto)
+
+$ docker inspect (inspeccionamos de forma detallada las características de un contenedor)
+
+$ docker kill (matamos un contenedor)
+
+$ docker log (vemos los logs de un contenedor concreto)
+
+$ docker pause/unpase (pausamos el contenedor)
+
+$ docker port (canalizamos un puerto para poder entrar a través de él en el container)
+
+$ docker ps (ver los contenedores que tenemos en nuestra máquina corriendo en ese momento.)
+    - a (muestra también los que están parados)
+    - l (muestra el último que se ha creado)
+
+$ docker rename (renombrar el nombre de un contenedor)
+
+$ docker start/stop/restart (para gestionar la máquina)
+
+$ docker rm (borrar un contenedor que debe estar parado)
+
+$ docker run (ejecuta o instancia un container a partir de una imagen)
+
+$ docker stats (ver los estatus de un container)
+
+$ docker top (ver una monitorización de lo que está ocurriendo en el container)
+
+$ docker update (actualización de un container concreto)
+```
+
+# Construcción de imágenes propias para subirlas al registro
+
+## Primera forma de hacerlo
+```sh
+Levanto el contenedor:
+$ docker run -t -i apache /bin/bash
+
+Miro qué puedo instalarle:
+$ dpkg -l | grep apache 
+
+Instalo la funcionalidad:
+$ apt-get update && apt-get install -y libapache2-mod-passenger
+
+Miro si está en ejecución:
+$ docker ps
+
+Hago un commit de los cambios realizados:
+$ docker commit -m "Añadido soporte de passenger" -a "Elena Limones" id_container
+elenalimones/apache-php-passenger:latest
+
+Compruebo que se me ha creado una imagen nueva:
+$ docker images
+
+Creamos el repositorio dentro de docker hub:
++ Creación de repositorio nuevo
+
+Para subir imagen al repositorio:
+1. Crear tag de imagen
+$ docker tag
+docker tag image_id elenalimones/mysql:latest
+
+2. Login en Docker Hub
+$ docker login
+username: elenalimones
+password: Gatuno00!
+
+3. Subir imagen
+$ docker push
+docker push elenalimones/mysql
+
+4. Volver a descargarla desde docker hub
+$ docker pull
+docker pull elenalimones/mysql 
+
+```
+
+  - TAG (indica la versión, si voy a hacer más modificaciones sobre la imagen pongo v1, v2 y así, pero si es la última pongo latest)
+ 
+
+>  Cuando Docker se crea, crea a su vez por defecto tres tipos de red:
+ bridge (interfaz puente y por defecto en container) --> docker0
+ host (se utiliza para poder enlazar distintos container en un host)
+ none (aislar a un contenedor)
+
+
+### Docker Networking
+```sh
+$ docker network ls (ver los tipos de red)
+
+$ docker network connect/disconnect (conectar o desconectar container a redes)
+
+$ docker network create -d tipo nombre_red (crear redes nuevas)
+
+$ docker network inspect (inspeccionar las redes)
+
+$ docker network rm (borrar redes)
+```
+
+### Gestión de Volumen de Datos
+
+```sh
+$ docker volume create (crear volumen de datos)
+
+$ docker volume inspect (ver información del volumen de datos)
+
+$ docker volume ls (listar volumenes de datos)
+
+$ docker volume rm (borrar un volumen de datos)
+
+```
+
+
+
+

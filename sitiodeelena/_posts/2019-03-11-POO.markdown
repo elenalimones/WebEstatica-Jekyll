@@ -1,0 +1,407 @@
+---
+layout: post
+title:  "Programación Orientada a Objetos y Ejemplos"
+date:   2019-03-11 18:07:01 +0100
+categories: jekyll update
+---
+
+¿Qu es POO?
+	La Programación Orientada a Objetos es un estilo de programación que permite que los
+desarroladores puedan agrupar todas las tareas que son similares en clase, de forma que ayuda
+a mantener el código sin repeticiones y a su vez, este es mucho más eficiente y fácil de mantener.
+
+	En caso de que alguna parte del programa que estamos desarrollando cambie, solo habria que
+realizar un cambio para actualizar el código y no muchos cambios.
+
+¿Qué hay que conocer para comprender la POO? Es muy importante conocer la diferencia entre objetos y clases:
+
+	Clase: Es lo que forma la estructura de los datos y las acciones se encargan
+	de usar esa información para así construir objetos. De una clase puede construirse
+	más de un objeto, cada uno independiente de los demás. 
+	La sintaxis para crear una clase se puede ver en los tres scripts que he utilizado:
+		SCRIPT 1:
+			class Query {
+				Aquí van las propiedades y los métodos			
+			};
+		SCRIPT 2:
+			class Rssreader {
+				Aquí van las propiedades y los métodos			
+			};
+
+			class RssItem {
+				Aquí van las propiedades y los métodos			
+			};
+		SCRIPT 3:
+			class pelicula {
+				Aquí van las propiedades y los métodos			
+			};
+		
+		Después de crear la clase esta puede ser instanciada y almacenada en una variable
+		pero en este caso se tendrá que hacer uso de la palabra new:
+			SCRIPT 1:
+				$query = new Query($host,$user,$pass,$db)
+			SCRIPT 2:
+				$items[] = new RssItem ($match);
+		Para ver el contenido de las clases anteriores podríamos usar:
+			var_dump($items);
+			var_dump($query);
+	- Propiedades de una clase: Estas son las variables específicas de la clase. Para agregar
+	una propiedad a una clase habría que añadir lo siguiente a lo anterior:
+				SCRIPT 1:
+			class Query {
+					private $result;
+					private $connect;			
+			};
+		SCRIPT 2:
+
+			class Rssreader {
+					var $url;
+					var $data;
+			};
+
+			class RssItem {
+					var $title, $link; #, $description;
+			};
+		SCRIPT 3:
+
+			class pelicula {
+					public $titulo;
+					public $genero;
+					public $director;
+					public $publicocine;
+			};
+		Con la palabra public se le está permitiendo que la propiedad sea visible y que se pueda
+		acceder a ella. Para ello habría que hacer referencia al objeto que
+		se quiere leer y la propiedad a ser leída:
+			echo $titulo->titulo;
+			echo $genero->genero;
+		(la flecha -> se utiliza para acceder a las propiedades y métodos que contiene un
+		objeto)
+
+	- Métodos: Son funciones específicas de una clase, es decir, son acciones individuales que
+	un objeto puede realizar y se definen dentro de la clase, a continuación se pueden ver
+	ejemplos, en los tres script que he utilizado:
+		SCRIPT 1:
+			function execute($query){};
+			function display(){};
+			function close(){};
+		SCRIPT 2:
+			function RssReader ($url){};
+			function get_items(){};
+			function RssItem($xml){};
+			function populate($xml){};
+		SCRIPT 3:
+			public function gettitulo(){}; 
+			public function getgenero(){}; 
+			public function getdirector(){};
+			public function publicocine(){}; 
+			public function getpublicocine(){}; 
+	Los objetos se pueden referenciar a sí mismos haciendo uso de $this.
+
+	- Constructores: El constructor es un método especial que se declara dentro de una clase
+	y se utiliza para darle un valor a las propiedades del objeto al crearlo. Es el primer
+	método que se ejecuta al crear el objeto y es llamado automáticamente.
+	Puede recibir parámetros , pero no devolverá NUNCA ningún dato. 
+	El método tiene que tener obligatoriamente cómo nombre __construct()
+	A continuación, se pueden ver las funciones de constructor que se utilizan en los tres
+	script que he aportado en la práctica como ejemplos:
+		SCRIPT 1:
+		Esta se usaba para poder realizar la conexión con la base de datos:
+			function __construc($servername,$username,$password,$dbname) {
+				$this->connect = new mysqli($servername,$username,$password,$dbname);
+			};
+		SCRIPT 2:
+			function __construct($params){
+				$this->url = $params['url'];
+				$this->data = implode ("", file($url));
+			};
+		SCRIPT 3:
+			public function __construct(){
+				this->titulo = $titulo; 
+				this->genero = $genero; 
+				this->director = $director; 
+			};			
+	Es importante destacar que con POO lo que se permite es la reutilización de código y clase
+	para generar objetos distintos . 
+
+
+
+
+# Primer ejemplo de Programación Orientada a Objetos:
+```sh
+<?php
+
+class Query {
+  private $results;
+  private $connect;
+	/* Para poder realizar la conexión con la base de datos había que añadirle la función
+	constructor */
+  function __construct($servername, $username, $password, $dbname) {
+    $this->connect = new mysqli($servername, $username, $password, $dbname);
+  }
+	/* A continuación se comprobaba si la conexión con la base de datos había sido exitosa
+	o si por el contrario daba algún tipo de error. Este método se utiliza sobretodo para
+	comprobar si existen o no errores */
+  function execute($query) {
+    $this->results = $this->connect->query($query);
+    return $this->results !== false;
+  }
+	/* El siguiente método se utiliza para llevar a cabo una consulta a la base de datos */
+  function display(){
+    if($this->results->num_rows == 0){
+      echo "<b>No hay datos</b>";
+    }
+    while ($fila = $this->results->fetch_row()) {
+      print_r($fila);
+    }
+    $this->results->close();
+  }
+	/* Este último cierra la conexión realizada con la base de datos */
+  function close(){
+    $this->connect->close();
+  }
+
+};
+
+$host = "localhost";
+$user = "root";
+$pass = "root";
+$db = "aulas";
+
+$query = new Query($host,$user,$pass,$db);
+
+$sql = "select * from grupo";
+
+if($query->execute($sql)) {
+  $query->display();
+}
+else { echo "<b>Algo no ha ido bien! </b>"; }
+
+$query->close();
+
+
+  // Ver también http://bit.ly/2qSuxUn
+
+?>
+```
+
+## Uso del primer ejemplo:
+
+```sh
+<?php
+
+
+session_start();
+
+/* En este caso incluyo la clase1 para hacer uso de la funciones que posee de conectar con la
+base de datos, hacer consultas en esta, etcétera. */
+include 'clase1.php';
+/* Con los parametros siguientes se les indica la ip, el usuario de la base de datos con la que se
+va conectar junto con su contraseña, y por último, el nombre de la base de datos a la que se accederá*/
+$host = "localhost";
+$user = "elenalimones";
+$pass = "elenalimones";
+$db = "frases_celebres";
+$ar = array();
+
+// Se obtiene el id del autor con el método GET:
+$id_autor = $_GET['id_autor'];
+
+$query = new Query($host,$user,$pass,$db);
+
+// Consulta que se va llevar a cabo:
+$sql = "select * from frases where id_autor = '$id_autor' ";
+
+// execute hace referencia a un método de la clase y query al objeto
+if($query->execute($sql)) {
+  $ar=$query->getArray();
+	var_dump($ar);
+	//print_r($ar); (probando con print_r porque es un array)
+  $_SESSION["frases"]=$ar;
+
+}
+else { echo "<b>Algo no ha ido bien! </b>"; }
+
+// Por último, se cierra la conexión con la base de datos
+$query->close();
+
+
+  // Ver también http://bit.ly/2qSuxUn
+?>
+```
+
+
+
+# Segundo ejemplo de Programación Orientada a Objetos:
+
+```sh
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+
+/* Se puede observar que crea una clase llamada Rssreader y que en su interior se declaran
+dos variables (url y data) */
+class Rssreader {
+        var $url;
+        var $data;
+	/* Aquí se crea el constructor que es un método especial dentro de la clase ya que
+	se utiliza para darle un valor a los atributos del objeto al crearlo. Este recibe
+	parámetros como cualquier otro método. Hay que tener claro que el constructor no
+	devuelve ningún dato*/
+        public function __construct($params)
+        {
+                #RssReader($params['url']);
+            $this->url = $params['url'];
+            $this->data = implode ("", file ($this->url));
+        }
+	// A continuación se declara un nuevo método:
+        function RssReader ($url){
+            $this->url;
+            $this->data = implode ("", file ($url));
+        }
+	// Este método siguiente devuelve otra clase llamada RssItem
+        function get_items (){
+            preg_match_all ("/<item .*>.*<\/item>/xsmUi", $this->data, $matches);
+            $items = array ();
+            foreach ($matches[0] as $match){
+                $items[] = new RssItem ($match);
+            }
+            return $items;
+        }
+    }
+	/* A continuación se crea la clase RssItem que ha sido llamada en la función anterior,
+	ya que hay que crearla para que funcione correctamente al llamarla */
+    class RssItem {
+        var $title, $link; #, $description;
+        function RssItem ($xml){
+            $this->populate ($xml);
+        }
+	// Se le añaden métodos nuevos a la clase RssItem para la obtención del link, título, etc
+        function populate ($xml){
+            preg_match ("/<title> (.*) <\/title>/xsmUi", $xml, $matches);
+            $this->title = $matches[1];
+            preg_match ("/<link> (.*) <\/link>/xsmUi", $xml, $matches);
+            $this->link = $matches[1];
+            #preg_match ("/<description> (.*) <\/description>/xsmUi", $xml, $matches);
+            #$this->description = $matches[1];
+        }
+        function get_title (){
+          return $this->title;
+        }
+        function get_link (){
+          return $this->link;
+        }
+    }
+?>
+```
+
+
+## Uso del segundo ejemplo:
+```sh
+<?php
+define('BASEPATH', ".");
+
+   require('claseRssreader.php');
+   // Con el include se hace uso de la clase clase Rssreader.php
+   include('claseRssreader.php');
+
+   // Se introducen los parámetros que se van a usar en el constructor
+   $params = array('url' => 'http://ep00.epimg.net/rss/elpais/portada.xml');
+
+   // rss pasa a ser el objeto de la clase Rssreader
+   $rss = new Rssreader($params);
+   // Recorre $rss y con el método get_items se encarga de asignar el resultado de la clase a rssreader
+   foreach ($rss->get_items() as $item){
+     echo substr($item->get_title(),9,-3) . "<br />";
+     echo "<hr />";
+   }
+
+?>
+```
+
+
+# Tercer ejemplo de Programación Orientada a Objetos y su uso:
+
+```sh
+<?php
+
+// Definición de una clase:
+	class pelicula {
+	// Añado varios atributos a la clase película
+		public $titulo;
+		public $genero;
+		public $director;
+		public $publicocine;
+
+	// Añado el constructor
+		public function __constructor($titulo,$genero,$director,$publico = 0){}
+			this->titulo = $titulo;
+			this->genero = $genero;
+			this->director = $director;
+
+	// Se le añade un método para que devuelva el atributo título
+		public function gettitulo(){
+			return $this->titulo;
+		}
+
+	// Se le añade un método para darle un valor al atributo género
+		public function getgenero(){
+			return $this-> $genero;
+		}
+
+	// Se le añade un método para que devuelva el atributo director
+		public function getdirector(){
+			return $this->director;
+		}
+
+	// Se le añade otro método:
+		public function publicocine(){
+			return $this->publicocine++;
+		}
+	// Método para obtener el atributo publico
+		public function getpublicocine(){
+			return $this->publicocine;
+		}
+
+		public funcion mostrarinfo(){
+	//Llamo a los métodos:
+		$info = "<h1>Información de la película</h1>";
+		$info = "Título: ".$this->titulo;
+		$info = "Género: ".$this->genero;
+		$info = "Director: ".$this->getdirector();
+		$info = "Público del cine: ".$this->getpublicocine();
+
+		return $info;
+		}
+	}
+
+?>
+```
+## Uso del tercer ejemplo:
+```sh
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="utf-8"/>
+	<title>Constructor</title>
+</head>
+<body>
+
+<?php
+/* Se crea el objeto y se instancia la clase pasándole los parámetros del constructor, que eran
+el título, genero, director y público del cine */
+	$pelicula = new pelicula("Vengadores","Acción","Rusos Brother's", 120);
+
+// Se muestra información de la primera pelicula:
+
+	echo $pelicula->mostrarinfo();
+
+	// Se crea una nueva película y se muestra
+	$pelicula2 = new pelicula("Star Wars","Ficción","George Lucas",150);
+	echo $pelicula2 ->mostrarInfo();
+
+?>
+</body>
+</html>
+``` 

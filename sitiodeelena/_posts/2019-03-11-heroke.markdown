@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "Despliegue de aplicación Python flask headlines en Heroku"
+date:   2019-03-11 18:07:01 +0100
+categories: jekyll update
+---
+
+
+## Requisitos previos
+	- gunicorn
+	- feedparser
+	- flask
+
+## Debe crear el archivo Procfile
+Con la siguiente información en su interior:
+	web gunicorn headlines:app
+
+
+## Instalación de Heroku
+
+	sudo snap install --clasic heroku
+
+## ¡Sugerencia!
+Si haciendo el paso anterior de la instalación de Heroku le diera algún problema deberia ejecutar 
+el script que puede obtener de:
+	https://cli-assets.heroku.com/install-ubuntu.sh
+
+## Para probarlo una vez puesto en funcionamiento:
+	- https://proyecto-heroke.herokuapp.com
+
+Este admite periódicos diferentes (elm, abc y bbc) que podría probar de la siguiente forma:
+	- https://proyecto-heroke.herokuapp.com/news/elm
+	- https://proyecto-heroke.herokuapp.com/news/bbc
+	- https://proyecto-heroke.herokuapp.com/news/abc
+
+
+Para más información consulte en mi github en el repositorio Heroku-flask del siguiente enlace:
+https://github.com/elenalimones/Heroku-flask.

@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-11T19:29:30+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sitio de Elena Limones Jovacho</title><subtitle></subtitle><entry><title type="html">Programación Orientada a Objetos y Ejemplos</title><link href="http://localhost:4000/jekyll/update/2019/03/11/POO.html" rel="alternate" type="text/html" title="Programación Orientada a Objetos y Ejemplos" /><published>2019-03-11T18:07:01+01:00</published><updated>2019-03-11T18:07:01+01:00</updated><id>http://localhost:4000/jekyll/update/2019/03/11/POO</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/03/11/POO.html">&lt;p&gt;¿Qu es POO?
+	La Programación Orientada a Objetos es un estilo de programación que permite que los
+desarroladores puedan agrupar todas las tareas que son similares en clase, de forma que ayuda
+a mantener el código sin repeticiones y a su vez, este es mucho más eficiente y fácil de mantener.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;En caso de que alguna parte del programa que estamos desarrollando cambie, solo habria que realizar un cambio para actualizar el código y no muchos cambios.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;¿Qué hay que conocer para comprender la POO? Es muy importante conocer la diferencia entre objetos y clases:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Clase: Es lo que forma la estructura de los datos y las acciones se encargan
+de usar esa información para así construir objetos. De una clase puede construirse
+más de un objeto, cada uno independiente de los demás. 
+La sintaxis para crear una clase se puede ver en los tres scripts que he utilizado:
+	SCRIPT 1:
+		class Query {
+			Aquí van las propiedades y los métodos			
+		};
+	SCRIPT 2:
+		class Rssreader {
+			Aquí van las propiedades y los métodos			
+		};
+
+		class RssItem {
+			Aquí van las propiedades y los métodos			
+		};
+	SCRIPT 3:
+		class pelicula {
+			Aquí van las propiedades y los métodos			
+		};
+	
+	Después de crear la clase esta puede ser instanciada y almacenada en una variable
+	pero en este caso se tendrá que hacer uso de la palabra new:
+		SCRIPT 1:
+			$query = new Query($host,$user,$pass,$db)
+		SCRIPT 2:
+			$items[] = new RssItem ($match);
+	Para ver el contenido de las clases anteriores podríamos usar:
+		var_dump($items);
+		var_dump($query);
+- Propiedades de una clase: Estas son las variables específicas de la clase. Para agregar
+una propiedad a una clase habría que añadir lo siguiente a lo anterior:
+			SCRIPT 1:
+		class Query {
+				private $result;
+				private $connect;			
+		};
+	SCRIPT 2:
+
+		class Rssreader {
+				var $url;
+				var $data;
+		};
+
+		class RssItem {
+				var $title, $link; #, $description;
+		};
+	SCRIPT 3:
+
+		class pelicula {
+				public $titulo;
+				public $genero;
+				public $director;
+				public $publicocine;
+		};
+	Con la palabra public se le está permitiendo que la propiedad sea visible y que se pueda
+	acceder a ella. Para ello habría que hacer referencia al objeto que
+	se quiere leer y la propiedad a ser leída:
+		echo $titulo-&amp;gt;titulo;
+		echo $genero-&amp;gt;genero;
+	(la flecha -&amp;gt; se utiliza para acceder a las propiedades y métodos que contiene un
+	objeto)
+
+- Métodos: Son funciones específicas de una clase, es decir, son acciones individuales que
+un objeto puede realizar y se definen dentro de la clase, a continuación se pueden ver
+ejemplos, en los tres script que he utilizado:
+	SCRIPT 1:
+		function execute($query){};
+		function display(){};
+		function close(){};
+	SCRIPT 2:
+		function RssReader ($url){};
+		function get_items(){};
+		function RssItem($xml){};
+		function populate($xml){};
+	SCRIPT 3:
+		public function gettitulo(){}; 
+		public function getgenero(){}; 
+		public function getdirector(){};
+		public function publicocine(){}; 
+		public function getpublicocine(){}; 
+Los objetos se pueden referenciar a sí mismos haciendo uso de $this.
+
+- Constructores: El constructor es un método especial que se declara dentro de una clase
+y se utiliza para darle un valor a las propiedades del objeto al crearlo. Es el primer
+método que se ejecuta al crear el objeto y es llamado automáticamente.
+Puede recibir parámetros , pero no devolverá NUNCA ningún dato. 
+El método tiene que tener obligatoriamente cómo nombre __construct()
+A continuación, se pueden ver las funciones de constructor que se utilizan en los tres
+script que he aportado en la práctica como ejemplos:
+	SCRIPT 1:
+	Esta se usaba para poder realizar la conexión con la base de datos:
+		function __construc($servername,$username,$password,$dbname) {
+			$this-&amp;gt;connect = new mysqli($servername,$username,$password,$dbname);
+		};
+	SCRIPT 2:
+		function __construct($params){
+			$this-&amp;gt;url = $params['url'];
+			$this-&amp;gt;data = implode (&quot;&quot;, file($url));
+		};
+	SCRIPT 3:
+		public function __construct(){
+			this-&amp;gt;titulo = $titulo; 
+			this-&amp;gt;genero = $genero; 
+			this-&amp;gt;director = $director; 
+		};			
+Es importante destacar que con POO lo que se permite es la reutilización de código y clase
+para generar objetos distintos . 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;primer-ejemplo-de-programación-orientada-a-objetos&quot;&gt;Primer ejemplo de Programación Orientada a Objetos:&lt;/h1&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+class Query &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  private &lt;span class=&quot;nv&quot;&gt;$results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  private &lt;span class=&quot;nv&quot;&gt;$connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Para poder realizar la conexión con la base de datos había que añadirle la función
+	constructor &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+  &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;__construct&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$servername&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$password&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$dbname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;connect &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new mysqli&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$servername&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$password&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$dbname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; A continuación se comprobaba si la conexión con la base de datos había sido exitosa
+	o si por el contrario daba algún tipo de error. Este método se utiliza sobretodo para
+	comprobar si existen o no errores &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+  &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;execute&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;results &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;connect-&amp;gt;query&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;results &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; El siguiente método se utiliza para llevar a cabo una consulta a la base de datos &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+  &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;display&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;results-&amp;gt;num_rows &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 0&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;b&amp;gt;No hay datos&amp;lt;/b&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fila&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;results-&amp;gt;fetch_row&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fila&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;results-&amp;gt;close&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Este último cierra la conexión realizada con la base de datos &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+  &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;close&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;connect-&amp;gt;close&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$pass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;root&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aulas&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new Query&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$host&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$pass&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;select * from grupo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;-&amp;gt;execute&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;-&amp;gt;display&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;b&amp;gt;Algo no ha ido bien! &amp;lt;/b&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;-&amp;gt;close&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+  // Ver también http://bit.ly/2qSuxUn
+
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;uso-del-primer-ejemplo&quot;&gt;Uso del primer ejemplo:&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+
+session_start&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; En este caso incluyo la clase1 para hacer uso de la funciones que posee de conectar con la
+base de datos, hacer consultas en esta, etcétera. &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+include &lt;span class=&quot;s1&quot;&gt;'clase1.php'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Con los parametros siguientes se les indica la ip, el usuario de la base de datos con la que se
+va conectar junto con su contraseña, y por último, el nombre de la base de datos a la que se accederá&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+&lt;span class=&quot;nv&quot;&gt;$host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;elenalimones&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$pass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;elenalimones&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;frases_celebres&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+// Se obtiene el &lt;span class=&quot;nb&quot;&gt;id &lt;/span&gt;del autor con el método GET:
+&lt;span class=&quot;nv&quot;&gt;$id_autor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'id_autor'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new Query&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$host&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$pass&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+// Consulta que se va llevar a cabo:
+&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;select * from frases where id_autor = '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$id_autor&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;' &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+// execute hace referencia a un método de la clase y query al objeto
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;-&amp;gt;execute&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;-&amp;gt;getArray&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	//print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;probando con print_r porque es un array&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;frases&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;b&amp;gt;Algo no ha ido bien! &amp;lt;/b&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+// Por último, se cierra la conexión con la base de datos
+&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;-&amp;gt;close&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+  // Ver también http://bit.ly/2qSuxUn
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;segundo-ejemplo-de-programación-orientada-a-objetos&quot;&gt;Segundo ejemplo de Programación Orientada a Objetos:&lt;/h1&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+defined&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'BASEPATH'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; OR &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'No direct script access allowed'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Se puede observar que crea una clase llamada Rssreader y que en su interior se declaran
+dos variables &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;url y data&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+class Rssreader &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        var &lt;span class=&quot;nv&quot;&gt;$url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        var &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Aquí se crea el constructor que es un método especial dentro de la clase ya que
+	se utiliza para darle un valor a los atributos del objeto al crearlo. Este recibe
+	parámetros como cualquier otro método. Hay que tener claro que el constructor no
+	devuelve ningún dato&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+        public &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;__construct&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;#RssReader($params['url']);&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;url &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'url'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; implode &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;, file &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;url&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	// A continuación se declara un nuevo método:
+        &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;RssReader &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;url&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; implode &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;, file &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	// Este método siguiente devuelve otra clase llamada RssItem
+        &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;get_items &lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+            preg_match_all &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/&amp;lt;item .*&amp;gt;.*&amp;lt;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;item&amp;gt;/xsmUi&quot;&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;data, &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$items&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            foreach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;0] as &lt;span class=&quot;nv&quot;&gt;$match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+                &lt;span class=&quot;nv&quot;&gt;$items&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new RssItem &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; A continuación se crea la clase RssItem que ha sido llamada en la función anterior,
+	ya que hay que crearla para que funcione correctamente al llamarla &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+    class RssItem &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        var &lt;span class=&quot;nv&quot;&gt;$title&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#, $description;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;RssItem &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;populate &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	// Se le añaden métodos nuevos a la clase RssItem para la obtención del &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt;, título, etc
+        &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;populate &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$xml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+            preg_match &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/&amp;lt;title&amp;gt; (.*) &amp;lt;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;title&amp;gt;/xsmUi&quot;&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$xml&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;title &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            preg_match &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/&amp;lt;link&amp;gt; (.*) &amp;lt;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;link&amp;gt;/xsmUi&quot;&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$xml&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;link &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;#preg_match (&quot;/&amp;lt;description&amp;gt; (.*) &amp;lt;\/description&amp;gt;/xsmUi&quot;, $xml, $matches);&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;#$this-&amp;gt;description = $matches[1];&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;get_title &lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;title&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;get_link &lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;link&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;uso-del-segundo-ejemplo&quot;&gt;Uso del segundo ejemplo:&lt;/h2&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+define&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'BASEPATH'&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+   require&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'claseRssreader.php'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   // Con el include se hace uso de la clase clase Rssreader.php
+   include&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'claseRssreader.php'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+   // Se introducen los parámetros que se van a usar en el constructor
+   &lt;span class=&quot;nv&quot;&gt;$params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'url'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://ep00.epimg.net/rss/elpais/portada.xml'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+   // rss pasa a ser el objeto de la clase Rssreader
+   &lt;span class=&quot;nv&quot;&gt;$rss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new Rssreader&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   // Recorre &lt;span class=&quot;nv&quot;&gt;$rss&lt;/span&gt; y con el método get_items se encarga de asignar el resultado de la clase a rssreader
+   foreach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$rss&lt;/span&gt;-&amp;gt;get_items&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; as &lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+     &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;substr&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$item&lt;/span&gt;-&amp;gt;get_title&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;,9,-3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br /&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;hr /&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;tercer-ejemplo-de-programación-orientada-a-objetos-y-su-uso&quot;&gt;Tercer ejemplo de Programación Orientada a Objetos y su uso:&lt;/h1&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+
+// Definición de una clase:
+	class pelicula &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	// Añado varios atributos a la clase película
+		public &lt;span class=&quot;nv&quot;&gt;$titulo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		public &lt;span class=&quot;nv&quot;&gt;$genero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		public &lt;span class=&quot;nv&quot;&gt;$director&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		public &lt;span class=&quot;nv&quot;&gt;$publicocine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	// Añado el constructor
+		public &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;__constructor&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$titulo&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$genero&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$director&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$publico&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;o&quot;&gt;){}&lt;/span&gt;
+			this-&amp;gt;titulo &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$titulo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			this-&amp;gt;genero &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$genero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			this-&amp;gt;director &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$director&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	// Se le añade un método para que devuelva el atributo título
+		public &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;gettitulo&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;titulo&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	// Se le añade un método para darle un valor al atributo género
+		public &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;getgenero&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt; &lt;span class=&quot;nv&quot;&gt;$genero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	// Se le añade un método para que devuelva el atributo director
+		public &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;getdirector&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;director&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	// Se le añade otro método:
+		public &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;publicocine&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;publicocine++&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	// Método para obtener el atributo publico
+		public &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;getpublicocine&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;publicocine&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+		public funcion mostrarinfo&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+	//Llamo a los métodos:
+		&lt;span class=&quot;nv&quot;&gt;$info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;h1&amp;gt;Información de la película&amp;lt;/h1&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Título: &quot;&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;titulo&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Género: &quot;&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;genero&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Director: &quot;&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;getdirector&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Público del cine: &quot;&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$this&lt;/span&gt;-&amp;gt;getpublicocine&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;uso-del-tercer-ejemplo&quot;&gt;Uso del tercer ejemplo:&lt;/h2&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;DOCTYPE HTML&amp;gt;
+&amp;lt;html &lt;span class=&quot;nv&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;es&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span class=&quot;nb&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+	&amp;lt;meta &lt;span class=&quot;nv&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;/&amp;gt;
+	&amp;lt;title&amp;gt;Constructor&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+
+&amp;lt;?php
+/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Se crea el objeto y se instancia la clase pasándole los parámetros del constructor, que eran
+el título, genero, director y público del cine &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/
+	&lt;span class=&quot;nv&quot;&gt;$pelicula&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new pelicula&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Vengadores&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;Acción&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;Rusos Brother's&quot;&lt;/span&gt;, 120&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+// Se muestra información de la primera pelicula:
+
+	&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$pelicula&lt;/span&gt;-&amp;gt;mostrarinfo&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	// Se crea una nueva película y se muestra
+	&lt;span class=&quot;nv&quot;&gt;$pelicula2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new pelicula&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Star Wars&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;Ficción&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;George Lucas&quot;&lt;/span&gt;,150&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$pelicula2&lt;/span&gt; -&amp;gt;mostrarInfo&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+?&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">¿Qu es POO? La Programación Orientada a Objetos es un estilo de programación que permite que los desarroladores puedan agrupar todas las tareas que son similares en clase, de forma que ayuda a mantener el código sin repeticiones y a su vez, este es mucho más eficiente y fácil de mantener.</summary></entry><entry><title type="html">Nociones básicas para aprender PHP</title><link href="http://localhost:4000/jekyll/update/2019/03/11/aprendiendo-php.html" rel="alternate" type="text/html" title="Nociones básicas para aprender PHP" /><published>2019-03-11T18:07:01+01:00</published><updated>2019-03-11T18:07:01+01:00</updated><id>http://localhost:4000/jekyll/update/2019/03/11/aprendiendo-php</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/03/11/aprendiendo-php.html">&lt;h2 id=&quot;introducción&quot;&gt;Introducción:&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A lo largo de este post puede ver las herramientas necesarias para la utilización de php y algunas nociones básicas en cuanto a sintaxis para su correcto uso.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;herramientas-necesarias-para-su-uso&quot;&gt;Herramientas necesarias para su uso:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Linux
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;apache2 php7.2 php7.2-cli php7.2-common php7.2-mysql libapache2-mod-php7.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Windows
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.apachefriends.org/es/index.html 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nociones-básicas-de-php&quot;&gt;Nociones básicas de PHP&lt;/h3&gt;
+&lt;h3 id=&quot;comentarios-en-php&quot;&gt;Comentarios en php:&lt;/h3&gt;
+
+&lt;p&gt;//comentario o con #
+/* comentario bloque */&lt;/p&gt;
+
+&lt;h3 id=&quot;uso-de-variables&quot;&gt;Uso de variables&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$variable = &quot;hola&quot;
+$numero = 11;
+echo $variable . &quot;\n&quot;;
+echo $numero;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;uso-de-constantes&quot;&gt;Uso de constantes&lt;/h3&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Constante simple:
+&amp;lt;?php
+    define&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nombreconstante&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;valor&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    define&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MI_CONSTANTE&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;HOLA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+Constante array:
+    define&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MI_ARRAY&quot;&lt;/span&gt;, array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;3&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$_miconstante&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; MI_CONSTANTE&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;MI_CONSTANTE &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Las constantes son valores fijos&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;para-mostrar&quot;&gt;Para mostrar:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;print_r (&quot;valor&quot;); (muestra también arrays)
+echo &quot;valor&quot;; (muestra datos simples)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;operadores&quot;&gt;Operadores&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Operadores lógicos
+– $a and $b (verdadero si $a y $b son verdaderos)
+– $a or $b (verdadero si alguno de los dos es verdadero)
+– $a or $b (verdadero si uno de los dos es verdadero, pero no ambos a la vez)
+– !$a (verdadero si $a es falso)
+– $a &amp;amp;&amp;amp; $b (verdadero si $a y $b son verdaderos)
+– $a || $b (verdadero si cualquiera de los dos es verdadero)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Operadores de asignación:
+– $a = “Uno”; (no se entiende por igual, sino que significa que el operando de la izquierda se asigna el valor del de la derecha)
+– $b = $a (en este caso $b, por ejemplo, valdría Uno)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Operadores de comparación
+– $a == $b (verdadero si $a es igual a $b)
+– $a === $b (idénticos, además de igual, son del mismo tipo)
+– $a != $b (verdadero si $a es distinto de $b)
+– $a &amp;lt;&amp;gt; $b (verdadero si $a es diferente de $b)
+– $a !== $b (si $a no es igual que $b y además no son del mismo tipo)
+– $a &amp;gt; $b ($a es mayor que $b)
+– $a &amp;lt; $b ($a es menor que $b)
+– $a &amp;lt;= $b (verdadero si $a es menor o igual que $b)
+– $a &amp;gt;= $b (verdadero si $a es mayor o igual que $b)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Operadores de incremento/decremento
+– ++ $a(Pre-incremento, incrementa $a en uno, y luego retorna $a, lo muestra la próxima vez que aparezca $a y no esa vez que lo hace)
+– $a++ (Post-incremento, retorna $a, y luego incrementa $a en uno)
+– –$a (Pre-decremento, decrementa $a en uno, luego retorna $a, lo muestra en decremento la próxima vez que aparezca $a, no cuando lo hace)
+–$a– (Post-decremento, retorna $a, luego decrementa $a en uno)
+```sh
+$a = 5
+echo “\nincremento\n”;
+  echo $a . “\n”;
+  echo $a++ . “\n”;
+  echo $a . “\n”;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;echo “\nPreincremento\n”;
+$a = 5
+    echo ++$a . “\n”;
+    echo $a . “\n”;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- Operadores de string
+-- . (con el punto se concatenan cadenas)
+-- .= (es el operdor de asignación sobre concatenación)
+
+```sh
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;juan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;lopez&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;nv&quot;&gt;$c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Pedro&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;García&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+&lt;span class=&quot;nx&quot;&gt;Solución&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;juanlopez&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;PedroGarcía&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;inclusión-de-páginas-php&quot;&gt;Inclusión de páginas PHP:&lt;/h3&gt;
+&lt;p&gt;Esto se hace para que sean más fácilmente modificables y legibles. Hay varias formas de incluirlo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;include
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  include &lt;span class=&quot;s2&quot;&gt;&quot;script2.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  include_once &lt;span class=&quot;s2&quot;&gt;&quot;script2.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;una sola vez&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;require
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  require &lt;span class=&quot;s2&quot;&gt;&quot;script2.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  require_once &lt;span class=&quot;s2&quot;&gt;&quot;script2.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;la incluye una sola vez y se encarga de que no esté incluída en otra parte del programa&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Include y require son iguales solo se diferencian en el tipo de error que generan. 
+Require indica que el código que se inluye es obligatorio para la ejecución del script y si no se encuentra el archivo dará un error y se parara el script o programa php.
+Include indica que el código que se incluye es opcional y si el fichero no se encuentra dará un warning, una advertencia que no existe el fichero que queremos incluir pero el programa seguirá ejecutándose aunque no funcione bien.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sessiones-y-cookies&quot;&gt;Sessiones y cookies&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sessiones: Son un conjunto de datos de un usuario que se guardan mientras él permanece en nuestro sitio. Funcionan de una forma similar a las cookies pero las cookies no son aceptadas por todos los usuarios y navegadores y se almacenan en el ordenador del cliente, mientras las sessiones son almacenadas en el servidor:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &amp;lt;?php
+    session_start&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mi_sesion'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;valor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&amp;lt;?php
+    session_start&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mi_sesion'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;¿Cuándo se usan las sesiones?
+ · Carrito de compras
+ · Control de un usuario registrado&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cookies
+```sh
+ &lt;?php
+  setcookie(&quot;name&quot;,&quot;valor&quot;);
+?&gt;
+&lt;a href=&quot;otrapagina.php&quot;&gt;COOKIES&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Otra página
+&lt;?php
+    echo $_COOKIE['name'];
+?&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```sh
+$nombre = 'usuario';
+$valor = 'Homer';
+// El tiempo de expiración es en 30 minutos. PHP traduce la fecha al formato adecuado
+$expiracion = time() + 60 * 30;
+// Ruta y dominio
+$ruta = '/cookies/';
+$dominio = &quot;prueba.dev&quot;;
+// Sólo envía la cookie con conexión HTTPs
+$seguridad = false;
+// Cookie disponible sólo para el protocolo HTTP
+$solohttp = true;
+setcookie($nombre, $valor, $expiracion, $ruta, $dominio, $seguridad, $solohttp);
+echo &quot;Cookie establecida&quot;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para leer las cookies existe un array llamado $_COOKIE, que se usa para extraer los valores de la cookie:&lt;/p&gt;
+  &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$valorCookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_COOKIE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'usuario'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$valorCookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; // Devuelve: usuario
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;arrays&quot;&gt;Arrays&lt;/h3&gt;
+&lt;p&gt;Sirven para ordenar y guardar grupos de datos:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Arrays (puede contener cualquier tipo de valor en su interior, empiezan por 0)
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Creación del array:
+  &lt;span class=&quot;nv&quot;&gt;$array_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;3&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;, array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'juan'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'diego'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$array_2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;uno&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;dos&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;tres&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;cuatro&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   
+  Ver los elementos del array por pantalla:
+  &lt;span class=&quot;nv&quot;&gt;$array_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;nos da como resultado: dos&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+  print_r &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;muestra el array completo con el otro array dentro&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Arrays asociativos
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Definición:
+  &lt;span class=&quot;nv&quot;&gt;$arra_ass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;'1'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'valor2'&lt;/span&gt;,
+      &lt;span class=&quot;s1&quot;&gt;'2'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'valor2'&lt;/span&gt;,
+      &lt;span class=&quot;s1&quot;&gt;'3'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'valor3'&lt;/span&gt;,
+      &lt;span class=&quot;s1&quot;&gt;'4'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$array_2&lt;/span&gt;,
+  &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+  Acceso a través de claves:
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$arra_ass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2]&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;pre&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;para que se vea de forma legible, lo formatea&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  print_r &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arra_ass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;muestra el array completo&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;/pre&amp;gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Funciones de arrays (algunas importantes)
+– is_array ($arra_ass); (indica si lo que hay dentro es un array)
+– array_keys (Devuelve todas las claves del array, en este caso 1,2,3…)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hay una gran variedad de funciones de arrays.&lt;/p&gt;
+
+&lt;h2 id=&quot;estructuras-de-control&quot;&gt;Estructuras de control&lt;/h2&gt;
+&lt;h3 id=&quot;ifelse&quot;&gt;If…else&lt;/h3&gt;
+&lt;p&gt;Es una estructura condicional, hace una cosa u otra:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+    &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;10&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Son iguales&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    elseif &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &amp;lt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; es menor que &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; es mayor que &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;while--do--while&quot;&gt;While / do … while&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;while (evalúa una expresión mientras sea verdadera sino sale del bucle. No evalúa la expresión si no es verdadero de entrada)
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 10&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 5&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;++&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Do … while (es al reves, primero entra en el bucle y luego te evalúa la expresión (do while en este caso evalúa si es igual y el while evaluaba si era distinto))
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;++&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;for&quot;&gt;For&lt;/h3&gt;
+&lt;p&gt;Evalúa una expresión1 mientras la expresión2 es verdadera y la expresión3 se encarga de hacer un incremento o decremento de la expresion1.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &amp;lt; 10&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$j&lt;/span&gt;++ &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;foreach&quot;&gt;Foreach&lt;/h3&gt;
+&lt;p&gt;Se utiliza para recorrer arrays u objetos y tiene dos formas de uso:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    · Sintaxis:
+    foreach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;expresion_array as &lt;span class=&quot;nv&quot;&gt;$valor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        sentencias
+    · Ejemplo:
+    &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;uno&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;dos&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;tres&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    foreach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; as &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+    Sintaxis:
+    foreach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;expresion_array as &lt;span class=&quot;nv&quot;&gt;$clave&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$valor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        sentencias
+    · Ejemplo:
+     &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+     &lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;uno&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;dos&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;3&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;tres&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+     foreach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; as &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; = &quot;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Uso de Break y continue
+Break = Finaliza la ejecución de la estructura for, foreach, while, do-while o switch en curso. 
+Continue = Se utiliza en estructuras de control para pasar a la siguiente iteracción.&lt;/p&gt;
+  &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;· Ejemplo de uso de &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;:
+&amp;lt;?php
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &amp;lt; 10&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 5 &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nb&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+       &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;br&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dato interesante:
+$line = readline();
+En $line se almacena todo lo que escribes por la consola hasta finalizar con un intro.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;formularios&quot;&gt;FORMULARIOS&lt;/h2&gt;
+&lt;h3 id=&quot;get-muestra-los-datos-por-la-url&quot;&gt;GET (muestra los datos por la url)&lt;/h3&gt;
+&lt;p&gt;Esta forma no es muy segura porque se ven todos los datos desde la url. Está mas delimitado en cuanto a caracteres que puedes enviar, archivos no se pueden enviar, datos binarios tampoco:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;index.php:
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;&lt;span class=&quot;nb&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;tittle&amp;gt;&amp;lt;/tittle&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;form &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;form.php &lt;span class=&quot;nv&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;get&amp;gt;
+        Escriba su nombre&amp;lt;input &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nombre&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &amp;lt;input &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;enviar&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Enviar&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;/form&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+form.php donde recibe los datos del formulario:
+&amp;lt;?php
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'nombre'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;post-&quot;&gt;POST ()&lt;/h3&gt;
+&lt;p&gt;Se pueden enviar archivos, datos binarios y muchas más cosas que con el método GET:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;index.php:
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;&lt;span class=&quot;nb&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;tittle&amp;gt;&amp;lt;/tittle&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;form &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;form.php &lt;span class=&quot;nv&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;post&amp;gt;
+        Escriba su nombre&amp;lt;input &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nombre&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &amp;lt;input &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;enviar&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Enviar&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;/form&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+form.php donde recibe los datos del formulario:
+&amp;lt;?php
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'nombre'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;[Este ejemplo de formulario tiene un zip llamado Ejemplo_formulario_en_PHP.zip]&lt;/p&gt;
+
+&lt;p&gt;###Subida de ficheros al servidor
+ Se va realizar con el método POST porque el método GET no permite subida de ficheros, lo que aparece a continuación, nos crea una caja de texto con la que podemos añadir ficheros:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;index.php:
+&amp;lt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;&lt;span class=&quot;nb&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;tittle&amp;gt;&amp;lt;/tittle&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;form &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;form.php &lt;span class=&quot;nv&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;post &lt;span class=&quot;nv&quot;&gt;enctype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;multipart/form-data&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        Escriba su nombre&amp;lt;input &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nombre&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        Subir fichero&amp;lt;input &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;file&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fichero&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &amp;lt;input &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;enviar&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Enviar&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;/form&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+form.php donde recibe los datos del formulario:
+&amp;lt;?php
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'nombre'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;[ con esto: method=post enctype=”multipart/form-data” le estamos diciendo al servidor que subiremos un fichero]&lt;/p&gt;</content><author><name></name></author><summary type="html">Introducción: A lo largo de este post puede ver las herramientas necesarias para la utilización de php y algunas nociones básicas en cuanto a sintaxis para su correcto uso.</summary></entry><entry><title type="html">Aprendiendo Docker</title><link href="http://localhost:4000/jekyll/update/2019/03/11/docker.html" rel="alternate" type="text/html" title="Aprendiendo Docker" /><published>2019-03-11T18:07:01+01:00</published><updated>2019-03-11T18:07:01+01:00</updated><id>http://localhost:4000/jekyll/update/2019/03/11/docker</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/03/11/docker.html">&lt;h1 id=&quot;docker&quot;&gt;DOCKER&lt;/h1&gt;
+
+&lt;h1 id=&quot;gestión-de-imágenes&quot;&gt;Gestión de imágenes:&lt;/h1&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker images &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Muestrario de imágenes instaladas en nuestro sistema físico&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;history&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;nos muestra el historial de cambios que tiene una imagen concreta. Ejecuciones que se han hecho en una imagen base hasta llegar donde está. Ejemplo: Una imagen base debian hasta tener instalado un apache, los pasos que se han dado&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker inspect &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Muestra una descripción detallada de características de la imagen&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker save/load &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Salvar y cargar una imagen a partir de un targ&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker rmi &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Borra una imagen de nuestro host físico&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;gestión-de-contenedores&quot;&gt;Gestión de contenedores:&lt;/h1&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker attach &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;si tenemos un contenedor activo nos agregamos a él&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ejecutamos un comando en un contenedor concreto&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker inspect &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;inspeccionamos de forma detallada las características de un contenedor&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;matamos un contenedor&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker log &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;vemos los logs de un contenedor concreto&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker pause/unpase &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;pausamos el contenedor&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker port &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;canalizamos un puerto para poder entrar a través de él en el container&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker ps &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ver los contenedores que tenemos en nuestra máquina corriendo en ese momento.&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    - a &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;muestra también los que están parados&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    - l &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;muestra el último que se ha creado&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker rename &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;renombrar el nombre de un contenedor&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker start/stop/restart &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;para gestionar la máquina&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;borrar un contenedor que debe estar parado&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ejecuta o instancia un container a partir de una imagen&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker stats &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ver los estatus de un container&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker top &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ver una monitorización de lo que está ocurriendo en el container&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker update &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;actualización de un container concreto&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;construcción-de-imágenes-propias-para-subirlas-al-registro&quot;&gt;Construcción de imágenes propias para subirlas al registro&lt;/h1&gt;
+
+&lt;h2 id=&quot;primera-forma-de-hacerlo&quot;&gt;Primera forma de hacerlo&lt;/h2&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Levanto el contenedor:
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; apache /bin/bash
+
+Miro qué puedo instalarle:
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;apache 
+
+Instalo la funcionalidad:
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; libapache2-mod-passenger
+
+Miro si está en ejecución:
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker ps
+
+Hago un commit de los cambios realizados:
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Añadido soporte de passenger&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Elena Limones&quot;&lt;/span&gt; id_container
+elenalimones/apache-php-passenger:latest
+
+Compruebo que se me ha creado una imagen nueva:
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker images
+
+Creamos el repositorio dentro de docker hub:
++ Creación de repositorio nuevo
+
+Para subir imagen al repositorio:
+1. Crear tag de imagen
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker tag
+docker tag image_id elenalimones/mysql:latest
+
+2. Login en Docker Hub
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker login
+username: elenalimones
+password: Gatuno00!
+
+3. Subir imagen
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker push
+docker push elenalimones/mysql
+
+4. Volver a descargarla desde docker hub
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker pull
+docker pull elenalimones/mysql 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TAG (indica la versión, si voy a hacer más modificaciones sobre la imagen pongo v1, v2 y así, pero si es la última pongo latest)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cuando Docker se crea, crea a su vez por defecto tres tipos de red:
+ bridge (interfaz puente y por defecto en container) –&amp;gt; docker0
+ host (se utiliza para poder enlazar distintos container en un host)
+ none (aislar a un contenedor)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;docker-networking&quot;&gt;Docker Networking&lt;/h3&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker network &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ver los tipos de red&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker network connect/disconnect &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;conectar o desconectar container a redes&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker network create &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; tipo nombre_red &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;crear redes nuevas&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker network inspect &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;inspeccionar las redes&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker network &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;borrar redes&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;gestión-de-volumen-de-datos&quot;&gt;Gestión de Volumen de Datos&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker volume create &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;crear volumen de datos&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker volume inspect &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ver información del volumen de datos&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker volume &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;listar volumenes de datos&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker volume &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;borrar un volumen de datos&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">DOCKER</summary></entry><entry><title type="html">Despliegue de aplicación Python flask headlines en Heroku</title><link href="http://localhost:4000/jekyll/update/2019/03/11/heroke.html" rel="alternate" type="text/html" title="Despliegue de aplicación Python flask headlines en Heroku" /><published>2019-03-11T18:07:01+01:00</published><updated>2019-03-11T18:07:01+01:00</updated><id>http://localhost:4000/jekyll/update/2019/03/11/heroke</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/03/11/heroke.html">&lt;h2 id=&quot;requisitos-previos&quot;&gt;Requisitos previos&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- gunicorn
+- feedparser
+- flask
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;debe-crear-el-archivo-procfile&quot;&gt;Debe crear el archivo Procfile&lt;/h2&gt;
+&lt;p&gt;Con la siguiente información en su interior:
+	web gunicorn headlines:app&lt;/p&gt;
+
+&lt;h2 id=&quot;instalación-de-heroku&quot;&gt;Instalación de Heroku&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo snap install --clasic heroku
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;sugerencia&quot;&gt;¡Sugerencia!&lt;/h2&gt;
+&lt;p&gt;Si haciendo el paso anterior de la instalación de Heroku le diera algún problema deberia ejecutar 
+el script que puede obtener de:
+	https://cli-assets.heroku.com/install-ubuntu.sh&lt;/p&gt;
+
+&lt;h2 id=&quot;para-probarlo-una-vez-puesto-en-funcionamiento&quot;&gt;Para probarlo una vez puesto en funcionamiento:&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- https://proyecto-heroke.herokuapp.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Este admite periódicos diferentes (elm, abc y bbc) que podría probar de la siguiente forma:
+	- https://proyecto-heroke.herokuapp.com/news/elm
+	- https://proyecto-heroke.herokuapp.com/news/bbc
+	- https://proyecto-heroke.herokuapp.com/news/abc&lt;/p&gt;
+
+&lt;p&gt;Para más información consulte en mi github en el repositorio Heroku-flask del siguiente enlace:
+https://github.com/elenalimones/Heroku-flask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Requisitos previos - gunicorn - feedparser - flask</summary></entry><entry><title type="html">Aprende a crear el juego de Piedra, Papel o Tijeras</title><link href="http://localhost:4000/jekyll/update/2019/03/11/juegopiedrapapelytiejeras.html" rel="alternate" type="text/html" title="Aprende a crear el juego de Piedra, Papel o Tijeras" /><published>2019-03-11T18:07:01+01:00</published><updated>2019-03-11T18:07:01+01:00</updated><id>http://localhost:4000/jekyll/update/2019/03/11/juegopiedrapapelytiejeras</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/03/11/juegopiedrapapelytiejeras.html">&lt;p&gt;Aclaración previa: Recuerde darle como nombre Metodopost.pl y Metodoget.pl&lt;/p&gt;
+
+&lt;h2 id=&quot;haciendo-uso-del-método-get&quot;&gt;Haciendo uso del método GET&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/perl&lt;/span&gt;
+print &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: text/html; charset=utf-8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+@pairs &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/&amp;amp;/, &lt;span class=&quot;nv&quot;&gt;$ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;QUERY_STRING&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;#Contador para controlar la obtención de valores nombre y elección&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+foreach &lt;span class=&quot;nv&quot;&gt;$pair&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;@pairs&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; eq 0 &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    
+		&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/, &lt;span class=&quot;nv&quot;&gt;$pair&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt;/+/ /&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ s/%&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;..&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;/pack&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C&quot;&lt;/span&gt;, hex&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;/eg&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		@jugador1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; +1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; eq 1 &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    
+		&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/, &lt;span class=&quot;nv&quot;&gt;$pair&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt;/+/ /&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ s/%&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;..&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;/pack&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C&quot;&lt;/span&gt;, hex&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;/eg&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		@jugador2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Creación de la variable de la que obtengo la hora exacta en la que ocurre el juego&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sec&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$min&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$hora&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$mday&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$mes&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$Y&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$wday&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$syday&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$isdst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; localtime&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Para configurar el formato de la fecha de forma personalizada&lt;/span&gt;
+@meses&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; qw&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+@dias&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; qw&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Domingo Lunes Martes Miércoles Jueves Viernes Sábado&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dias&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$wday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;] &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$mday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; de &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$meses&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$mes&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;] de &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Y&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$hora&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$min&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sec&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;#Creacion de un hash haciendo uso del simbolo =&amp;gt; para establecer la clave/valor:&lt;/span&gt;
+%valores &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'piedra'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'tijera'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'papel'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'piedra'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'tijera'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'papel'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] eq &lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] han empatado&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  open &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T, &lt;span class=&quot;s1&quot;&gt;'&amp;gt;&amp;gt;'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'/tmp/datosjuego'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  print T &lt;span class=&quot;s2&quot;&gt;&quot;Jugadores: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: Empate&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  close &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$valores&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; eq &lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ha ganado &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  open &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T, &lt;span class=&quot;s1&quot;&gt;'&amp;gt;&amp;gt;'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'/tmp/datosjuego'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  print T &lt;span class=&quot;s2&quot;&gt;&quot;Jugadores: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: Ganador:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  close &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$valores&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; eq &lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+ print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ha ganado &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ open &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T, &lt;span class=&quot;s1&quot;&gt;'&amp;gt;&amp;gt;'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'/tmp/datosjuego'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ print T &lt;span class=&quot;s2&quot;&gt;&quot;Jugadores: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: Ganador:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ close &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;quiere-poner-a-prueba-su-funcionamiento-usando-el-método-get&quot;&gt;¿Quiere poner a prueba su funcionamiento usando el método GET?&lt;/h1&gt;
+&lt;p&gt;curl -G “http://localhost/cgi-bin/Recuperacionelena.pl?elena=piedra&amp;amp;juanito=papel”&lt;/p&gt;
+
+&lt;h2 id=&quot;haciendo-uso-del-método-post&quot;&gt;Haciendo uso del método POST&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/perl&lt;/span&gt;
+print &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: text/html; charset=utf-8&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Para hacer uso del método POST:&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$datos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &amp;lt;STDIN&amp;gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+@pairs &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/&amp;amp;/, &lt;span class=&quot;nv&quot;&gt;$datos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;#Contador para controlar la obtención de valores nombre y elección&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 0&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+foreach &lt;span class=&quot;nv&quot;&gt;$pair&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;@pairs&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; eq 0 &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    
+		&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/, &lt;span class=&quot;nv&quot;&gt;$pair&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt;/+/ /&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ s/%&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;..&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;/pack&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C&quot;&lt;/span&gt;, hex&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;/eg&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		@jugador1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; +1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; eq 1 &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    
+		&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/, &lt;span class=&quot;nv&quot;&gt;$pair&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt;/+/ /&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		 &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~ s/%&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;..&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;/pack&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C&quot;&lt;/span&gt;, hex&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;/eg&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		@jugador2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Creación de la variable de la que obtengo la hora exacta en la que ocurre el juego&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sec&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$min&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$hora&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$mday&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$mes&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$Y&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$wday&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$syday&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$isdst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; localtime&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#Para configurar el formato de la fecha de forma personalizada&lt;/span&gt;
+@meses&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; qw&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+@dias&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; qw&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Domingo Lunes Martes Miércoles Jueves Viernes Sábado&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dias&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$wday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;] &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$mday&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; de &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$meses&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$mes&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;] de &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Y&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$hora&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$min&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$seg&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;#Creacion de un hash haciendo uso del simbolo =&amp;gt; para establecer la clave/valor:&lt;/span&gt;
+%valores &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'piedra'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'tijera'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'papel'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'piedra'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'tijera'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'papel'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] eq &lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] han empatado&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  open &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T, &lt;span class=&quot;s1&quot;&gt;'&amp;gt;&amp;gt;'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'/tmp/datosjuego'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  print T &lt;span class=&quot;s2&quot;&gt;&quot;Jugadores: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: Empate&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  close &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$valores&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; eq &lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ha ganado &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  open &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T, &lt;span class=&quot;s1&quot;&gt;'&amp;gt;&amp;gt;'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'/tmp/datosjuego'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  print T &lt;span class=&quot;s2&quot;&gt;&quot;Jugadores: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: Ganador:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  close &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$valores&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; eq &lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+ print&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ha ganado &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ open &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T, &lt;span class=&quot;s1&quot;&gt;'&amp;gt;&amp;gt;'&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'/tmp/datosjuego'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ print T &lt;span class=&quot;s2&quot;&gt;&quot;Jugadores: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0] y &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fecha&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: Ganador:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$jugador2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ close &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;T&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+close F&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;quiere-poner-a-prueba-su-funcionamiento-usando-el-método-post&quot;&gt;¿Quiere poner a prueba su funcionamiento usando el método POST?&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -d &quot;elena=papel&amp;amp;juanito=tijera&quot; http://localhost/cgi-bin/Metodopost.pl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Aclaración previa: Recuerde darle como nombre Metodopost.pl y Metodoget.pl</summary></entry><entry><title type="html">¡Bienvenid@ a mi sitio!</title><link href="http://localhost:4000/jekyll/update/2019/03/11/welcome-to-jekyll.html" rel="alternate" type="text/html" title="¡Bienvenid@ a mi sitio!" /><published>2019-03-11T18:07:01+01:00</published><updated>2019-03-11T18:07:01+01:00</updated><id>http://localhost:4000/jekyll/update/2019/03/11/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/03/11/welcome-to-jekyll.html">&lt;p&gt;¡Hola! Este sitio ha sido creado por Elena Limones Jovacho, para ir agregando en él todo lo que ha
+ido aprendiendo a lo largo del grado superior de Administración de Sistemas Informáticos y Redes.
+	En los distintos post podrá visualizar distintos temas relacionados con redes informáticas
+y algún que otro lenguaje de programación y aplicación.&lt;/p&gt;</content><author><name></name></author><summary type="html">¡Hola! Este sitio ha sido creado por Elena Limones Jovacho, para ir agregando en él todo lo que ha ido aprendiendo a lo largo del grado superior de Administración de Sistemas Informáticos y Redes. En los distintos post podrá visualizar distintos temas relacionados con redes informáticas y algún que otro lenguaje de programación y aplicación.</summary></entry></feed>
